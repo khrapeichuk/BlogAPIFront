@@ -5,9 +5,9 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { LoginComponent } from './login.component';
-import { LogoutComponent }   from './logout.component';
-import { ProfileComponent } from './profile.component';
+import { LoginComponent } from './shared/authentication/login.component';
+import { LogoutComponent }   from './shared/authentication/logout.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 @NgModule({
   declarations: [

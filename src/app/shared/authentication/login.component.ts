@@ -3,8 +3,8 @@ import { Http, Response, Headers } from '@angular/http';
 
 @Component({
   selector: 'login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./app.component.css']
+  templateUrl: 'login.component.html',
+  styleUrls: ['../../app.component.css']
 })
 
 export class LoginComponent {
