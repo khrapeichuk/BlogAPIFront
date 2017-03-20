@@ -1,3 +1,23 @@
-<h1>
-  {{title}}
-</h1>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand">{{ title }}</a>
+    </div>
+      <ul class="nav navbar-nav navbar-right">
+
+        <li *ngIf="isAuthorized()">
+          <a [routerLink]="['/profile']" routerLinkActive="active" style="margin-right: 40px;">Profile</a>
+        </li>
+        <li *ngIf="isAuthorized()">
+          <a [routerLink]="['/logout']" routerLinkActive="active">Logout</a>
+        </li>
+
+        <li *ngIf="!isAuthorized()">
+          <a routerLink="/login" routerLinkActive="active">Login</a>
+        </li>
+      </ul>
+  </div>
+</nav>
+<div class="container-fluid">
+  <router-outlet></router-outlet>
+</div>

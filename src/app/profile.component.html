@@ -1,0 +1,20 @@
+<div class="container col-sm-offset-1">
+  <div class="media">
+    <div class="media-left">
+      <a href="#">
+        <img class="media-object" src="default-profile.png" alt="...">
+      </a>
+    </div>
+    <div class="media-body">
+      <h4 class="media-heading">{{ data?.firstname + " " + data?.lastname }}</h4>
+      <div style="display: inline-block">
+        <h5>{{ "email: " + data?.email }}</h5>
+      </div>
+      <div style="display: inline-block; margin-left: 50px;">
+        <h5>{{ "rights: " + data?.rights }}</h5>
+      </div>
+      <h5>{{ "registration date: " + data?.created_at }}</h5>
+    </div>
+    <a class="btn btn-default" [routerLink]="['/edit-profile']" routerLinkActive="active">Edit profile</a>
+  </div>
+</div>
