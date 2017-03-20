@@ -1,5 +1,3 @@
-import {last} from "rxjs/operator/last";
-
 export class User {
   id: string;
   firstname: string;
@@ -10,7 +8,6 @@ export class User {
   updated_at: string;
   is_subscribed: boolean;
   rights: string;
-
 
   constructor(id: string,
               firstname: string,

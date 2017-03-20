@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Http, Response } from '@angular/http';
-import { Router } from '@angular/router';
+
+import { UserService } from '../../user/user.service';
 
 
 @Component({
@@ -11,23 +12,19 @@ import { Router } from '@angular/router';
 
 export class ProfileComponent implements OnInit{
   data: Object;
-  loading: boolean;
 
-  constructor(private http: Http, private router: Router) {
-  }
+  constructor (private userService: UserService, private http: Http) {}
 
   ngOnInit(): void {
     this.getUserById();
   }
 
-  getUserById(): void {
-    this.loading = true;
+  getUserById() {
+    //this.userService.getUserById(localStorage.getItem('id'), localStorage.getItem('token'));
 
     this.http.request('http://localhost:3000/api/v1/users/' + localStorage.getItem('id') + "?token=" + localStorage.getItem('token'))
       .subscribe((res: Response) => {
         this.data = res.json();
-        //console.log(this.data);
-        this.loading = false;
       });
   }
 }

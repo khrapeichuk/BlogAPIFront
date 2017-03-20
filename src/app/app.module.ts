@@ -9,6 +9,8 @@ import { LoginComponent } from './shared/authentication/login.component';
 import { LogoutComponent }   from './shared/authentication/logout.component';
 import { ProfileComponent } from './components/profile/profile.component';
 
+import { UserService } from '././user/user.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +24,7 @@ import { ProfileComponent } from './components/profile/profile.component';
     HttpModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
