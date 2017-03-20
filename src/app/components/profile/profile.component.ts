@@ -20,9 +20,7 @@ export class ProfileComponent implements OnInit{
   }
 
   getUserById() {
-    //this.userService.getUserById(localStorage.getItem('id'), localStorage.getItem('token'));
-
-    this.http.request('http://localhost:3000/api/v1/users/' + localStorage.getItem('id') + "?token=" + localStorage.getItem('token'))
+    this.userService.getUserById(localStorage.getItem('id'))
       .subscribe((res: Response) => {
         this.data = res.json();
       });

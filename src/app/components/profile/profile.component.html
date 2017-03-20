@@ -1,4 +1,3 @@
-{{ data | json }}
 <div class="container col-sm-offset-1">
   <div class="media">
     <div class="media-left">
@@ -14,7 +13,7 @@
       <div style="display: inline-block; margin-left: 50px;">
         <h5>right: {{ data?.rights }}</h5>
       </div>
-      <h5>registration date: {{ data?.created_at | date:"dd-mm-yyyy" }}</h5>
+      <h5>registration date: {{ data?.created_at | date:"dd-MM-yyyy" }}</h5>
     </div>
     <a class="btn btn-default" [routerLink]="['/edit-profile']" routerLinkActive="active">Edit profile</a>
   </div>
