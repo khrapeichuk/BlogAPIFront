@@ -2,19 +2,19 @@
   <div class="form-group">
     <label for="firstname" class="col-sm-2 col-sm-offset-2 control-label">First name</label>
     <div class="col-sm-4">
-      <input type="text" class="form-control" id="firstname" placeholder="First name" #firstname>
+      <input type="text" class="form-control" id="firstname" value="{{ data?.firstname }}"  #firstname>
     </div>
   </div>
   <div class="form-group">
     <label for="lastname" class="col-sm-2 col-sm-offset-2 control-label">Last name</label>
     <div class="col-sm-4">
-      <input type="text" class="form-control" id="lastname" placeholder="Last name" #lastname>
+      <input type="text" class="form-control" id="lastname" value="{{ data?.lastname }}" #lastname>
     </div>
   </div>
   <div class="form-group">
     <label for="email" class="col-sm-2 col-sm-offset-2 control-label">Email</label>
     <div class="col-sm-4">
-      <input type="email" class="form-control" id="email" placeholder="Email" #email required>
+      <input type="email" class="form-control" id="email" value="{{ data?.email }}" #email required>
     </div>
   </div>
 
