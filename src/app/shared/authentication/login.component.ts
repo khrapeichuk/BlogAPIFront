@@ -22,11 +22,11 @@ export class LoginComponent {
 
   login(email: HTMLInputElement, password: HTMLInputElement) {
     this.error = null;
-    this.userService.post(email, password)
+    this.userService.postForLogin(email, password)
       .subscribe(
         (response: Response) => {
           this.data = response.json();
-          this.currentUser = new User(response.json().user._id, '', '', response.json().user.email, response.json().token, '', '', null, '');
+          this.currentUser = new User(response.json().user._id, '', '', response.json().user.email, '', response.json().token, '', '', null, '');
 
           this.localStorageService.setObject('currentUser', this.currentUser);
 

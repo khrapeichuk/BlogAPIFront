@@ -16,13 +16,24 @@ export class UserService {
       "?token=" + this.localStorageService.getParameter('token'));
   }
 
-  post (email, password) {
+  postForLogin (email, password) {
      return this.http.post (this.userUrl + 'login',
       JSON.stringify({
         email: email.value,
         password: password.value
       }), { headers: this.headers })
   }
+
+  postForRegistration (firstname, lastname, email, password) {
+    return this.http.post (this.userUrl,
+      JSON.stringify({
+        firstname: firstname.value,
+        lastname: lastname.value,
+        email: email.value,
+        password: password.value
+      }), { headers: this.headers })
+  }
+
 
   put (firstname, lastname, email) {
     console.log(this.userUrl + this.localStorageService.getParameter('id') +

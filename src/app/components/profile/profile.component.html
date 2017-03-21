@@ -16,9 +16,6 @@
       <div style="display: inline-block; margin-left: 400px;">
         <a class="btn btn-info" [routerLink]="['/edit-profile']" routerLinkActive="active">Edit profile</a>
       </div>
-      <div style="display: inline-block; margin-left: 20px;">
-        <a class="btn btn-danger" [routerLink]="['/delete-profile']" routerLinkActive="active">Delete profile</a>
-      </div>
       <h5>registration date: {{ data?.created_at | date:"dd-MM-yyyy" }}</h5>
     </div>
   </div>
