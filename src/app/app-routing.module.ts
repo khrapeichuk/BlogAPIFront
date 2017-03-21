@@ -7,12 +7,16 @@ import { RegistrationComponent } from './shared/authentication/registration.comp
 import { ProfileComponent} from './components/profile/profile.component';
 import { EditProfileComponent } from './components/profile/edit-profile.component';
 
+import { ArticleComponent } from './components/article/article.component';
+
 const routes: Routes = [
   { path: 'login',  component: LoginComponent },
   { path: 'logout',  component: LogoutComponent },
   { path: 'registration', component: RegistrationComponent },
   { path: 'profile',  component: ProfileComponent },
   { path: 'edit-profile',  component: EditProfileComponent },
+
+  { path: 'view-article', component: ArticleComponent}
 ];
 
 @NgModule({

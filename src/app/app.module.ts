@@ -11,7 +11,10 @@ import { RegistrationComponent } from './shared/authentication/registration.comp
 import { ProfileComponent } from './components/profile/profile.component';
 import { EditProfileComponent } from './components/profile/edit-profile.component';
 
+import { ArticleComponent } from './components/article/article.component';
+
 import { UserService } from '././user/user.service';
+import { ArticleService } from '././article/article.service';
 import { LocalStorageService } from './local-storage.service';
 
 @NgModule({
@@ -21,7 +24,9 @@ import { LocalStorageService } from './local-storage.service';
     LogoutComponent,
     RegistrationComponent,
     ProfileComponent,
-    EditProfileComponent
+    EditProfileComponent,
+
+    ArticleComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +34,7 @@ import { LocalStorageService } from './local-storage.service';
     HttpModule,
     AppRoutingModule
   ],
-  providers: [UserService, LocalStorageService],
+  providers: [UserService, ArticleService, LocalStorageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
