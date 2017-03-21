@@ -16,28 +16,23 @@ export class RegistrationComponent {
   data: Object;
   currentUser: User;
   user: User;
-  error: null;
+  error: string;
 
   constructor(private userService: UserService, private localStorageService: LocalStorageService, private router: Router) { }
 
-  registration (firstname: HTMLInputElement, lastname: HTMLInputElement, email: HTMLInputElement, password: HTMLInputElement, confirmPassword: HTMLInputElement) {
+  registration (firstname: HTMLInputElement, lastname: HTMLInputElement, email: HTMLInputElement, password: HTMLInputElement) {
     this.error = null;
-    if (password.value == confirmPassword.value){
-      this.userService.postForRegistration(firstname, lastname, email, password)
-        .subscribe(
-          (response: Response) => {
-            this.data = response.json();
-            this.currentUser = new User(response.json().user._id, response.json().user.firstname, response.json().user.lastname, response.json().user.email, response.json().user.password, response.json().token, '', '', null, '');
+    this.userService.postForRegistration(firstname, lastname, email, password)
+      .subscribe(
+        (response: Response) => {
+          this.data = response.json();
+          this.currentUser = new User(response.json().user._id, response.json().user.firstname, response.json().user.lastname, response.json().user.email, response.json().user.password, response.json().token, '', '', null, '');
 
-            this.localStorageService.setObject('currentUser', this.currentUser);
+          this.localStorageService.setObject('currentUser', this.currentUser);
 
-            this.router.navigate(['profile']);
-          },
-          (error) => this.error = error.json().error
-        );
-    }
-    // else {
-    //   (error) => this.error = JSON.stringify("Passwords don't match");
-    // }
+          this.router.navigate(['profile']);
+        },
+        (error) => this.error = error.json().error
+      );
   }
 }
