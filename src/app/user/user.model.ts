@@ -3,6 +3,7 @@ export class User {
   firstname: string;
   lastname: string;
   email: string;
+  password: string;
   token: string;
   created_at: string;
   updated_at: string;
@@ -13,6 +14,7 @@ export class User {
               firstname: string,
               lastname: string,
               email: string,
+              password: string,
               token: string,
               created_at: string,
               updated_at: string,
@@ -23,6 +25,7 @@ export class User {
     this.firstname = firstname;
     this.lastname = lastname;
     this.email = email;
+    this.password = password;
     this.token = token;
     this.created_at = created_at;
     this.updated_at = updated_at;
