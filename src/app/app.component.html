@@ -15,6 +15,9 @@
         <li *ngIf="!isAuthorized()">
           <a routerLink="/login" routerLinkActive="active">Login</a>
         </li>
+        <li *ngIf="!isAuthorized()">
+          <a routerLink="/registration" routerLinkActive="active">Registration</a>
+        </li>
       </ul>
   </div>
 </nav>
