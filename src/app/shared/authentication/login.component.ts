@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 
 import { UserService } from '../../user/user.service';
 import {User} from "../../user/user.model";
+import {LocalStorageService} from "../../local-storage.service";
 
 @Component({
   selector: 'login',
@@ -17,7 +18,7 @@ export class LoginComponent {
   user: User;
   error: null;
 
-  constructor(private userService: UserService, private router: Router) { }
+  constructor(private userService: UserService, private localStorageService: LocalStorageService, private router: Router) { }
 
   login(email: HTMLInputElement, password: HTMLInputElement) {
     this.error = null;
@@ -26,7 +27,8 @@ export class LoginComponent {
         (response: Response) => {
           this.data = response.json();
           this.currentUser = new User(response.json().user._id, '', '', response.json().user.email, response.json().token, '', '', null, '');
-          localStorage.setItem('currentUser', JSON.stringify(this.currentUser));
+
+          this.localStorageService.setObject('currentUser', this.currentUser);
 
           this.router.navigate(['profile']);
         },

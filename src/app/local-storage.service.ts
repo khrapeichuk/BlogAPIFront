@@ -5,9 +5,17 @@ import {User} from "./user/user.model";
 @Injectable()
 export class LocalStorageService {
 
+  setObject (name, object) {
+    localStorage.setItem(name, JSON.stringify(object));
+  }
+
+  getObject (name) : User {
+    return JSON.parse(localStorage.getItem(name));
+  }
+
   getParameter (param){
     let user: User;
-    user = JSON.parse(localStorage.getItem('currentUser'));
+    user = this.getObject('currentUser');
     switch (param){
       case 'id':
         return user._id;
