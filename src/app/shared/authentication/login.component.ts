@@ -3,8 +3,8 @@ import { Response } from '@angular/http';
 import { Router } from '@angular/router';
 
 import { UserService } from '../../user/user.service';
-import {User} from "../../user/user.model";
-import {LocalStorageService} from "../../local-storage.service";
+import { User } from "../../user/user.model";
+import { LocalStorageService } from "../../local-storage.service";
 
 @Component({
   selector: 'login',

@@ -8,6 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { LoginComponent } from './shared/authentication/login.component';
 import { LogoutComponent }   from './shared/authentication/logout.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { EditProfileComponent } from './components/profile/edit-profile.component';
 
 import { UserService } from '././user/user.service';
 import { LocalStorageService } from './local-storage.service';
@@ -17,7 +18,8 @@ import { LocalStorageService } from './local-storage.service';
     AppComponent,
     LoginComponent,
     LogoutComponent,
-    ProfileComponent
+    ProfileComponent,
+    EditProfileComponent
   ],
   imports: [
     BrowserModule,

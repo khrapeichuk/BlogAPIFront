@@ -23,4 +23,16 @@ export class UserService {
         password: password.value
       }), { headers: this.headers })
   }
+
+  put (firstname, lastname, email) {
+    console.log(this.userUrl + this.localStorageService.getParameter('id') +
+      "?token=" + this.localStorageService.getParameter('token'));
+    return this.http.put (this.userUrl + this.localStorageService.getParameter('id') +
+      "?token=" + this.localStorageService.getParameter('token'),
+      JSON.stringify({
+        firstname: firstname.value,
+        lastname: lastname.value,
+        email: email.value,
+      }), { headers: this.headers })
+  }
 }
