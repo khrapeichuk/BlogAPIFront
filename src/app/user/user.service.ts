@@ -2,16 +2,18 @@ import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 
 import 'rxjs/add/operator/toPromise';
+import {LocalStorageService} from "../local-storage.service";
 
 @Injectable()
 export class UserService {
   private headers = new Headers({'Content-Type': 'application/json; charset=utf-8'});
   private userUrl = 'http://localhost:3000/api/v1/users/';
 
-  constructor(private http: Http) { }
+  constructor(private http: Http, private localStorageService: LocalStorageService) { }
 
   getUserById (id: string) {
-    return this.http.get(this.userUrl + id + "?token=" + localStorage.getItem('token'));
+    return this.http.get(this.userUrl + this.localStorageService.getParameter('id') +
+      "?token=" + this.localStorageService.getParameter('token'));
   }
 
   post (email, password) {
@@ -19,6 +21,6 @@ export class UserService {
       JSON.stringify({
         email: email.value,
         password: password.value
-      }), {headers: this.headers})
+      }), { headers: this.headers })
   }
 }

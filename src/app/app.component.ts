@@ -14,7 +14,7 @@ export class AppComponent implements OnInit {
   }
 
   isAuthorized() {
-    if (localStorage.getItem('id') && localStorage.getItem('token')) {
+    if (localStorage.getItem('currentUser')) {
       return true;
     }
     else {

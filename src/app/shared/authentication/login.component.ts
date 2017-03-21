@@ -3,6 +3,7 @@ import { Response } from '@angular/http';
 import { Router } from '@angular/router';
 
 import { UserService } from '../../user/user.service';
+import {User} from "../../user/user.model";
 
 @Component({
   selector: 'login',
@@ -12,6 +13,8 @@ import { UserService } from '../../user/user.service';
 
 export class LoginComponent {
   data: Object;
+  currentUser: User;
+  user: User;
   error: null;
 
   constructor(private userService: UserService, private router: Router) { }
@@ -22,9 +25,8 @@ export class LoginComponent {
       .subscribe(
         (response: Response) => {
           this.data = response.json();
-          localStorage.setItem('id', response.json().user._id);
-          localStorage.setItem('email', response.json().user.email);
-          localStorage.setItem('token', response.json().token);
+          this.currentUser = new User(response.json().user._id, '', '', response.json().user.email, response.json().token, '', '', null, '');
+          localStorage.setItem('currentUser', JSON.stringify(this.currentUser));
 
           this.router.navigate(['profile']);
         },

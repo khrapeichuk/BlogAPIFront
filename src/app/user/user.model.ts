@@ -1,5 +1,5 @@
 export class User {
-  id: string;
+  _id: string;
   firstname: string;
   lastname: string;
   email: string;
@@ -9,7 +9,7 @@ export class User {
   is_subscribed: boolean;
   rights: string;
 
-  constructor(id: string,
+  constructor(_id: string,
               firstname: string,
               lastname: string,
               email: string,
@@ -19,7 +19,7 @@ export class User {
               is_subscribed: boolean,
               rights: string)
   {
-    this.id = id;
+    this._id = _id;
     this.firstname = firstname;
     this.lastname = lastname;
     this.email = email;

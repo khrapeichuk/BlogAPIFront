@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { Response } from '@angular/http';
 
 import { UserService } from '../../user/user.service';
-
+import { LocalStorageService } from "../../local-storage.service";
 
 @Component({
   selector: 'profile',
@@ -13,16 +13,16 @@ import { UserService } from '../../user/user.service';
 export class ProfileComponent implements OnInit{
   data: Object;
 
-  constructor (private userService: UserService, private http: Http) {}
+  constructor (private userService: UserService, private localStorageService: LocalStorageService) {}
 
   ngOnInit(): void {
     this.getUserById();
   }
 
   getUserById() {
-    this.userService.getUserById(localStorage.getItem('id'))
-      .subscribe((res: Response) => {
-        this.data = res.json();
+    this.userService.getUserById(this.localStorageService.getParameter('id'))
+      .subscribe((response: Response) => {
+        this.data = response.json();
       });
   }
 }

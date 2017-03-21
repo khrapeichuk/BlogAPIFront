@@ -10,6 +10,7 @@ import { LogoutComponent }   from './shared/authentication/logout.component';
 import { ProfileComponent } from './components/profile/profile.component';
 
 import { UserService } from '././user/user.service';
+import { LocalStorageService } from './local-storage.service';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,7 @@ import { UserService } from '././user/user.service';
     HttpModule,
     AppRoutingModule
   ],
-  providers: [UserService],
+  providers: [UserService, LocalStorageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
