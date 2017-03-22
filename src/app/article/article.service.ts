@@ -20,7 +20,19 @@ export class ArticleService {
     );
   }
 
-  getArticleById (id: string) {
+  getArticleById(id: string) {
     return this.APIService.get(this.articleUrl + id, {});
+  }
+
+  createArticle(title, body, category, image) {
+    return this.APIService.post(
+      this.articleUrl + "?token=" + this.localStorageService.getParameter('token'),
+      {
+        title: title.value,
+        body: body.value,
+        category: category.value,
+        image: image.value
+      }
+    );
   }
 }

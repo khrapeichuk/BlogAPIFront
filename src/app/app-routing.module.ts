@@ -9,6 +9,7 @@ import { EditProfileComponent } from './components/profile/edit-profile.componen
 
 import { ArticlesComponent } from './components/article/articles.component';
 import { ArticleDetailComponent } from './components/article/article-detail.component';
+import { CreateArticleComponent } from './components/article/create-article.component';
 
 const routes: Routes = [
   { path: 'login',  component: LoginComponent },
@@ -18,7 +19,8 @@ const routes: Routes = [
   { path: 'edit-profile',  component: EditProfileComponent },
 
   { path: 'articles', component: ArticlesComponent},
-  { path: 'articles/:id', component: ArticleDetailComponent }
+  { path: 'articles/:id', component: ArticleDetailComponent },
+  { path: 'create-article', component: CreateArticleComponent }
 ];
 
 @NgModule({

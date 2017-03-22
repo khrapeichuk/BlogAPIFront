@@ -12,11 +12,13 @@
   <h5>
     <b>Creation date: <i>{{ data?.created_at | date:"dd-MM-yyyy" }}</i></b>
   </h5>
+<div style="display: inline-block;">
   <h5>Categories:
     <div style="display: inline-block;" *ngFor="let category of data?.category">
       <i>{{ category + "; " }}</i>
     </div>
   </h5>
+</div>
   <div class="media" style="margin-top: 50px;" *ngFor="let comment of data?.comments">
     <div class="media-body">
       <h4 class="media-heading">{{ comment?.author.firstname + ' ' + comment?.author.lastname }}</h4>

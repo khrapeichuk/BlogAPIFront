@@ -18,7 +18,6 @@ export class ArticleDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((params: Params) => {
-      console.log(params['id']);
       let articleId = params['id'];
       this.getArticleDetail(articleId);
     });

@@ -13,6 +13,7 @@ import { EditProfileComponent } from './components/profile/edit-profile.componen
 
 import { ArticlesComponent } from './components/article/articles.component';
 import { ArticleDetailComponent } from './components/article/article-detail.component';
+import { CreateArticleComponent } from './components/article/create-article.component';
 
 import { APIService } from "./shared/api/api.service";
 import { UserService } from '././user/user.service';
@@ -29,7 +30,8 @@ import { LocalStorageService } from './local-storage.service';
     EditProfileComponent,
 
     ArticlesComponent,
-    ArticleDetailComponent
+    ArticleDetailComponent,
+    CreateArticleComponent
   ],
   imports: [
     BrowserModule,

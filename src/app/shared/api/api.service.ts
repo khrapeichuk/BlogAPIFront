@@ -43,6 +43,14 @@ export class APIService {
     );
   }
 
+  delete(UrlPart, parameters) {
+    let UrlParameters = this.convertObjectToUrlParameters (parameters);
+
+    return this.http.delete(
+      this.baseUrl + UrlPart + '?' + UrlParameters
+    );
+  }
+
   convertObjectToUrlParameters (object) {
     let UrlParameters = "";
     for (let key in object) {
