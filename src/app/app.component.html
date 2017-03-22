@@ -4,8 +4,8 @@
       <a class="navbar-brand">{{ title }}</a>
     </div>
     <ul class="nav navbar-nav navbar-left">
-      <li>
-        <a [routerLink]="['/view-article']" routerLinkActive="active">Display article</a>
+      <li *ngIf="isAuthorized()">
+        <a [routerLink]="['/articles']" routerLinkActive="active">Display articles</a>
       </li>
     </ul>
       <ul class="nav navbar-nav navbar-right">

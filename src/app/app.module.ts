@@ -11,7 +11,8 @@ import { RegistrationComponent } from './shared/authentication/registration.comp
 import { ProfileComponent } from './components/profile/profile.component';
 import { EditProfileComponent } from './components/profile/edit-profile.component';
 
-import { ArticleComponent } from './components/article/article.component';
+import { ArticlesComponent } from './components/article/articles.component';
+import { ArticleDetailComponent } from './components/article/article-detail.component';
 
 import { APIService } from "./shared/api/api.service";
 import { UserService } from '././user/user.service';
@@ -27,7 +28,8 @@ import { LocalStorageService } from './local-storage.service';
     ProfileComponent,
     EditProfileComponent,
 
-    ArticleComponent
+    ArticlesComponent,
+    ArticleDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +42,7 @@ import { LocalStorageService } from './local-storage.service';
     UserService,
     ArticleService,
     LocalStorageService
-    ],
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

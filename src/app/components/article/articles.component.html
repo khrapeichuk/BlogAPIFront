@@ -1,0 +1,18 @@
+<div class="container col-sm-offset-1">
+  <div class="media" style="margin-bottom: 50px;" *ngFor="let article of data?.articles">
+    <div class="media-left">
+        <img class="media-object" src="{{ article.image }}" width="150" height="150">
+    </div>
+    <div class="media-body">
+      <div style="display: inline-block;">
+        <a [routerLink]="['/articles', article._id]">
+          <h4 class="media-heading">{{ article.title }}</h4>
+        </a>
+      </div>
+      <div style="display: inline-block;" class="pull-right">
+        <h5><i>{{ article.created_at | date }}</i></h5>
+      </div>
+      <p style="margin-top: 12px;">{{ article.body | slice: 0: 850 }} {{ "..." }}</p>
+    </div>
+  </div>
+</div>

@@ -7,7 +7,8 @@ import { RegistrationComponent } from './shared/authentication/registration.comp
 import { ProfileComponent} from './components/profile/profile.component';
 import { EditProfileComponent } from './components/profile/edit-profile.component';
 
-import { ArticleComponent } from './components/article/article.component';
+import { ArticlesComponent } from './components/article/articles.component';
+import { ArticleDetailComponent } from './components/article/article-detail.component';
 
 const routes: Routes = [
   { path: 'login',  component: LoginComponent },
@@ -16,7 +17,8 @@ const routes: Routes = [
   { path: 'profile',  component: ProfileComponent },
   { path: 'edit-profile',  component: EditProfileComponent },
 
-  { path: 'view-article', component: ArticleComponent}
+  { path: 'articles', component: ArticlesComponent},
+  { path: 'articles/:id', component: ArticleDetailComponent }
 ];
 
 @NgModule({

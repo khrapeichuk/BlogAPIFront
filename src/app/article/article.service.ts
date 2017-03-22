@@ -1,15 +1,26 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
 
 import 'rxjs/add/operator/toPromise';
 
+import { APIService } from "../shared/api/api.service";
+import { LocalStorageService } from "../local-storage.service";
+
 @Injectable()
 export class ArticleService {
-  private articleUrl = 'http://localhost:3000/api/v1/articles/';
+  private articleUrl = 'articles/';
 
-  constructor(private http: Http) { }
+  constructor(private localStorageService: LocalStorageService, private APIService: APIService) {}
+
+  getArticles() {
+    return this.APIService.get(
+      this.articleUrl,
+      {
+        token: this.localStorageService.getParameter('token')
+      }
+    );
+  }
 
   getArticleById (id: string) {
-    return this.http.get(this.articleUrl + id);
+    return this.APIService.get(this.articleUrl + id, {});
   }
 }

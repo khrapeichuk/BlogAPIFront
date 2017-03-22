@@ -4,22 +4,22 @@ import { Response } from '@angular/http';
 import { ArticleService } from '../../article/article.service';
 
 @Component({
-  selector: 'article',
-  templateUrl: 'article.component.html',
+  selector: 'articles',
+  templateUrl: 'articles.component.html',
   styleUrls: ['../../app.component.css']
 })
 
-export class ArticleComponent implements OnInit{
+export class ArticlesComponent implements OnInit {
   data: Object;
 
   constructor (private articleService: ArticleService) {}
 
   ngOnInit(): void {
-    this.getUserById();
+    this.displayArticles();
   }
 
-  getUserById() {
-    this.articleService.getArticleById('582f0266019cd449e3771955')
+  displayArticles() {
+    this.articleService.getArticles()
       .subscribe((response: Response) => {
         this.data = response.json();
       });
