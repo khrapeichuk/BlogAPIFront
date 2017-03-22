@@ -13,6 +13,7 @@ import { EditProfileComponent } from './components/profile/edit-profile.componen
 
 import { ArticleComponent } from './components/article/article.component';
 
+import { APIService } from "./shared/api/api.service";
 import { UserService } from '././user/user.service';
 import { ArticleService } from '././article/article.service';
 import { LocalStorageService } from './local-storage.service';
@@ -34,7 +35,12 @@ import { LocalStorageService } from './local-storage.service';
     HttpModule,
     AppRoutingModule
   ],
-  providers: [UserService, ArticleService, LocalStorageService],
+  providers: [
+    APIService,
+    UserService,
+    ArticleService,
+    LocalStorageService
+    ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

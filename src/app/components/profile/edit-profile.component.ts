@@ -31,7 +31,7 @@ export class EditProfileComponent implements OnInit {
 
   editProfile (firstname: HTMLInputElement, lastname: HTMLInputElement, email: HTMLInputElement) {
     this.error = null;
-    this.userService.put(firstname, lastname, email)
+    this.userService.editProfile(firstname, lastname, email)
       .subscribe(
         (response: Response) => {
           this.data = response.json();

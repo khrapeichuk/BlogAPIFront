@@ -22,7 +22,7 @@ export class RegistrationComponent {
 
   registration (firstname: HTMLInputElement, lastname: HTMLInputElement, email: HTMLInputElement, password: HTMLInputElement) {
     this.error = null;
-    this.userService.postForRegistration(firstname, lastname, email, password)
+    this.userService.registration(firstname, lastname, email, password)
       .subscribe(
         (response: Response) => {
           this.data = response.json();

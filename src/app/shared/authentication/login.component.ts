@@ -22,7 +22,7 @@ export class LoginComponent {
 
   login(email: HTMLInputElement, password: HTMLInputElement) {
     this.error = null;
-    this.userService.postForLogin(email, password)
+    this.userService.login(email, password)
       .subscribe(
         (response: Response) => {
           this.data = response.json();

@@ -1,49 +1,57 @@
 import { Injectable } from '@angular/core';
-import { Http, Headers } from '@angular/http';
+import { APIService } from "../shared/api/api.service";
 
 import 'rxjs/add/operator/toPromise';
 import {LocalStorageService} from "../local-storage.service";
 
 @Injectable()
 export class UserService {
-  private headers = new Headers({'Content-Type': 'application/json; charset=utf-8'});
-  private userUrl = 'http://localhost:3000/api/v1/users/';
+  private userUrl = 'users/';
 
-  constructor(private http: Http, private localStorageService: LocalStorageService) { }
+  constructor(private localStorageService: LocalStorageService, private APIService: APIService) { }
 
-  getUserById (id: string) {
-    return this.http.get(this.userUrl + this.localStorageService.getParameter('id') +
-      "?token=" + this.localStorageService.getParameter('token'));
+  getUserById(id: string) {
+    return this.APIService.get(
+      this.userUrl + this.localStorageService.getParameter('id'),
+      {
+        token: this.localStorageService.getParameter('token')
+      }
+    );
   }
 
-  postForLogin (email, password) {
-     return this.http.post (this.userUrl + 'login',
-      JSON.stringify({
+  login(email, password) {
+    return this.APIService.post(
+      this.userUrl + 'login',
+      {
         email: email.value,
         password: password.value
-      }), { headers: this.headers })
+      }
+    );
   }
 
-  postForRegistration (firstname, lastname, email, password) {
-    return this.http.post (this.userUrl,
-      JSON.stringify({
+  registration(firstname, lastname, email, password) {
+    return this.APIService.post (
+      this.userUrl,
+      {
         firstname: firstname.value,
         lastname: lastname.value,
         email: email.value,
         password: password.value
-      }), { headers: this.headers })
+      }
+    );
   }
 
-
-  put (firstname, lastname, email) {
-    console.log(this.userUrl + this.localStorageService.getParameter('id') +
-      "?token=" + this.localStorageService.getParameter('token'));
-    return this.http.put (this.userUrl + this.localStorageService.getParameter('id') +
-      "?token=" + this.localStorageService.getParameter('token'),
-      JSON.stringify({
+  editProfile(firstname, lastname, email) {
+    return this.APIService.put (
+      this.userUrl + this.localStorageService.getParameter('id'),
+      {
+        token: this.localStorageService.getParameter('token')
+      },
+      {
         firstname: firstname.value,
         lastname: lastname.value,
-        email: email.value,
-      }), { headers: this.headers })
+        email: email.value
+      }
+    );
   }
 }
