@@ -46,6 +46,7 @@ export class APIService {
   delete(UrlPart, parameters) {
     let UrlParameters = this.convertObjectToUrlParameters (parameters);
 
+    console.log(this.baseUrl + UrlPart + '?' + UrlParameters);
     return this.http.delete(
       this.baseUrl + UrlPart + '?' + UrlParameters
     );

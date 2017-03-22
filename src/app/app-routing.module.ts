@@ -10,6 +10,7 @@ import { EditProfileComponent } from './components/profile/edit-profile.componen
 import { ArticlesComponent } from './components/article/articles.component';
 import { ArticleDetailComponent } from './components/article/article-detail.component';
 import { CreateArticleComponent } from './components/article/create-article.component';
+import { EditArticleComponent } from './components/article/edit-article.component';
 
 const routes: Routes = [
   { path: 'login',  component: LoginComponent },
@@ -20,7 +21,8 @@ const routes: Routes = [
 
   { path: 'articles', component: ArticlesComponent},
   { path: 'articles/:id', component: ArticleDetailComponent },
-  { path: 'create-article', component: CreateArticleComponent }
+  { path: 'create-article', component: CreateArticleComponent },
+  { path: 'edit-article/:id', component: EditArticleComponent },
 ];
 
 @NgModule({

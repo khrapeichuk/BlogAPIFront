@@ -35,4 +35,26 @@ export class ArticleService {
       }
     );
   }
+  editArticle(id, title, body, category, image) {
+    return this.APIService.put(
+      this.articleUrl + id,
+      {
+        token: this.localStorageService.getParameter('token')
+      },
+      {
+        title: title.value,
+        body: body.value,
+        category: category.value,
+        image: image.value
+      }
+    );
+  }
+
+  deleteArticle(id: string){
+    return this.APIService.delete(this.articleUrl + id,
+      {
+        token: this.localStorageService.getParameter('token')
+      }
+    );
+  }
 }

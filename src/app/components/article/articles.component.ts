@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Response } from '@angular/http';
 
 import { ArticleService } from '../../article/article.service';
+import { LocalStorageService } from '../../local-storage.service';
 
 @Component({
   selector: 'articles',
@@ -12,7 +13,7 @@ import { ArticleService } from '../../article/article.service';
 export class ArticlesComponent implements OnInit {
   data: Object;
 
-  constructor (private articleService: ArticleService) {}
+  constructor (private articleService: ArticleService, private localStorageService: LocalStorageService) {}
 
   ngOnInit(): void {
     this.displayArticles();
@@ -23,5 +24,13 @@ export class ArticlesComponent implements OnInit {
       .subscribe((response: Response) => {
         this.data = response.json();
       });
+  }
+
+  deleteArticle(id) {
+    this.articleService.deleteArticle(id);
+  }
+
+  getCurrentUserID() {
+    return this.localStorageService.getParameter('id');
   }
 }
