@@ -16,10 +16,13 @@ import { ArticleDetailComponent } from './components/article/article-detail.comp
 import { CreateArticleComponent } from './components/article/create-article.component';
 import { EditArticleComponent } from './components/article/edit-article.component';
 
+import { CommentComponent } from './components/comment/comment.component';
+
 import { APIService } from "./shared/api/api.service";
 import { UserService } from '././user/user.service';
 import { ArticleService } from '././article/article.service';
 import { LocalStorageService } from './local-storage.service';
+import { CommentService } from './comment/comment.service';
 
 @NgModule({
   declarations: [
@@ -33,7 +36,9 @@ import { LocalStorageService } from './local-storage.service';
     ArticlesComponent,
     ArticleDetailComponent,
     CreateArticleComponent,
-    EditArticleComponent
+    EditArticleComponent,
+
+    CommentComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,7 +50,8 @@ import { LocalStorageService } from './local-storage.service';
     APIService,
     UserService,
     ArticleService,
-    LocalStorageService
+    LocalStorageService,
+    CommentService
   ],
   bootstrap: [AppComponent]
 })
