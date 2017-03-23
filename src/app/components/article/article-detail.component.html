@@ -16,18 +16,50 @@
     </div>
 
     <div>
-      <b>Creation date:</b><i>{{ data?.created_at | date:"dd-MM-yyyy" }}</i>
+      <b>Creation date:</b><i>{{ data?.created_at | date }}</i>
     </div>
 
     <div>
       <b>Categories:</b><i *ngFor="let category of data?.category">{{ category + "; " }}</i>
     </div>
 
-    <div class="media" style="margin-top: 50px;" *ngFor="let comment of data?.comments">
-      <div class="media-body">
-        <h4 class="media-heading">{{ comment?.author.firstname + ' ' + comment?.author.lastname }}</h4>
-        <h5>{{ comment.message }}</h5>
+    <hr>
+
+    <div class="row" style="margin-top: 70px;">
+      <div class="col-sm-offset-2 col-sm-8">
+
+        <div class="media" style="margin-bottom: 30px;" *ngFor="let comment of data?.comments">
+          <div class="media-left">
+            <img class="media-object" src="default-profile.png">
+          </div>
+
+          <div class="media-body">
+            <b class="media-heading">{{ comment?.author.firstname + ' ' + comment?.author.lastname }}</b>
+            <i class="pull-right">{{ comment?.created_at | date }}</i>
+            <p>{{ comment.message }}</p>
+          </div>
+        </div>
+
       </div>
     </div>
+
+    <hr>
+
+    <form class="form-horizontal" style="margin-top: 50px;">
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-8">
+          <textarea class="form-control" rows="3" title="body" id="body" #body></textarea>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-8">
+          <button type="submit" class="btn btn-success">
+            <i class="fa fa-check" aria-hidden="true" style="margin-right: 7px;"></i>Add comment
+          </button>
+        </div>
+      </div>
+
+    </form>
   </div>
 </div>
