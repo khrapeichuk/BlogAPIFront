@@ -29,4 +29,8 @@ export class ArticleDetailComponent implements OnInit {
         this.data = response.json();
       });
   }
+
+  addComment(articleId, comment){
+    this.articleService.addComment(articleId, comment);
+  }
 }

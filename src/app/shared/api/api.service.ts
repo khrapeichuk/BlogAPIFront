@@ -18,7 +18,7 @@ export class APIService {
       {
         headers: this.headers
       }
-    );
+    )
   }
 
   post(UrlPart, data) {
@@ -51,9 +51,7 @@ export class APIService {
       {
         headers: this.headers
       }
-    ).toPromise()
-      .then(() => null)
-      .catch(() => null);
+    );
   }
 
   convertObjectToUrlParameters (object) {

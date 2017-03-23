@@ -29,6 +29,7 @@
       <div class="col-sm-offset-2 col-sm-8">
 
         <div class="media" style="margin-bottom: 30px;" *ngFor="let comment of data?.comments">
+
           <div class="media-left">
             <img class="media-object" src="default-profile.png">
           </div>
@@ -36,7 +37,9 @@
           <div class="media-body">
             <b class="media-heading">{{ comment?.author.firstname + ' ' + comment?.author.lastname }}</b>
             <i class="pull-right">{{ comment?.created_at | date }}</i>
-            <p>{{ comment.message }}</p>
+            <a [routerLink]="['/article/', data?._id, 'comment', comment?._id ]" routerLinkActive="active">
+              <p>{{ comment.message }}</p>
+            </a>
           </div>
         </div>
 
@@ -45,10 +48,10 @@
 
     <hr>
 
-    <form class="form-horizontal" style="margin-top: 50px;">
+    <form class="form-horizontal" style="margin-top: 50px;" (submit)="addComment(data?._id, message)">
       <div class="form-group">
         <div class="col-sm-offset-2 col-sm-8">
-          <textarea class="form-control" rows="3" title="body" id="body" #body></textarea>
+          <textarea class="form-control" rows="3" title="message" id="message" #message></textarea>
         </div>
       </div>
 

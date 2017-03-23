@@ -55,6 +55,19 @@ export class ArticleService {
       {
         token: this.localStorageService.getParameter('token')
       }
-    );
+    ).toPromise()
+      .then(() => null)
+      .catch(() => null);
+  }
+
+  addComment(articleId, message){
+    return this.APIService.post(
+      this.articleUrl + articleId + "/comments?token=" + this.localStorageService.getParameter('token'),
+      {
+        message: message.value,
+      }
+    ).toPromise()
+      .then(() => null)
+      .catch(() => null);
   }
 }
