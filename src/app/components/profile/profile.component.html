@@ -11,8 +11,10 @@
         <div style="display: inline-block">
           <h5>email: {{ data?.email }}</h5>
         </div>
-        <div style="display: inline-block; margin-left: 50px;">
-          <h5>right: {{ data?.rights }}</h5>
+
+        <div style="display: inline-block; margin-left: 100px;">rights:</div>
+        <div style="display: inline-block;" *ngFor="let right of data?.rights">
+          {{ right + "; " }}
         </div>
 
         <button class="btn btn-info pull-right" [routerLink]="['/edit-profile']" routerLinkActive="active">
