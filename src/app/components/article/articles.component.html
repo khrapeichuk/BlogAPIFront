@@ -1,29 +1,35 @@
-<div class="container col-sm-offset-1 col-sm-9">
+<div class="row">
+  <div class="col-sm-offset-1 col-sm-10">
     <button class="btn btn-info pull-right" [routerLink]="['/create-article']" routerLinkActive="active">
       <i class="fa fa-plus" aria-hidden="true" style="margin-right: 7px;"></i>Add article
     </button>
-  <div class="media" style="margin-top: 70px;" *ngFor="let article of data?.articles">
-    <div class="media-left">
+
+    <div class="media" style="margin-top: 70px;" *ngFor="let article of data?.articles">
+
+      <div class="media-left" >
         <img class="media-object" src="{{ article.image }}" width="150" height="150">
-    </div>
-    <div class="media-body">
-      <div style="display: inline-block;">
+      </div>
+
+      <div class="media-body">
         <a [routerLink]="['/articles', article._id]">
           <h4 class="media-heading">{{ article.title }}</h4>
         </a>
+
+        <p><i>{{ article.created_at | date }}</i></p>
+
+        <p style="margin-top: 12px;">{{ article.body | slice: 0: 970 }} {{ "..." }}</p>
       </div>
-      <div style="display: inline-block;" class="pull-right">
-        <h5><i>{{ article.created_at | date }}</i></h5>
+
+      <div class="pull-right" *ngIf="article.author._id == getCurrentUserID()">
+        <button class="btn btn-danger pull-right" style="margin-left: 15px;" (click)="deleteArticle(article._id)">
+          <i class="fa fa-trash-o" aria-hidden="true" style="margin-right: 7px;"></i>Delete article
+        </button>
+
+        <button class="btn btn-warning pull-right" [routerLink]="['/edit-article', article._id]" routerLinkActive="active">
+          <i class="fa fa-pencil" aria-hidden="true" style="margin-right: 7px;"></i>Edit article
+        </button>
       </div>
-      <p style="margin-top: 12px;">{{ article.body | slice: 0: 850 }} {{ "..." }}</p>
-    </div>
-    <div class="pull-right" *ngIf="article.author._id == getCurrentUserID()">
-      <button class="btn btn-danger pull-right" style="margin-left: 15px;" (click)="deleteArticle(article._id)">
-        <i class="fa fa-trash-o" aria-hidden="true" style="margin-right: 7px;"></i>Delete article
-      </button>
-      <button class="btn btn-warning pull-right" [routerLink]="['/edit-article', article._id]" routerLinkActive="active">
-        <i class="fa fa-pencil" aria-hidden="true" style="margin-right: 7px;"></i>Edit article
-      </button>
+
     </div>
   </div>
 </div>

@@ -1,28 +1,33 @@
-<div class="container col-sm-offset-1">
-  <button class="btn btn-primary" [routerLink]="['/articles']" routerLinkActive="active">
-    <i class="fa fa-chevron-left" aria-hidden="true" style="margin-right: 7px;"></i>Back to articles list
-  </button>
-  <h2 style="text-align: center;"><i>{{ data?.title }}</i></h2>
-  <p>
-    <img src="{{ data?.image }}" width="250" height="250" style="float: left; margin-right: 12px; margin-bottom: 7px;">
-    {{ data?.body }}</p>
-  <h5 style="margin-top: 30px;">
-    <b>Author: <i>{{ data?.author.firstname + ' ' + data?.author.lastname }}</i></b>
-  </h5>
-  <h5>
-    <b>Creation date: <i>{{ data?.created_at | date:"dd-MM-yyyy" }}</i></b>
-  </h5>
-<div style="display: inline-block;">
-  <h5>Categories:
-    <div style="display: inline-block;" *ngFor="let category of data?.category">
-      <i>{{ category + "; " }}</i>
+<div class="row">
+  <div class="col-sm-offset-1 col-sm-10">
+    <button class="btn btn-primary" [routerLink]="['/articles']" routerLinkActive="active">
+      <i class="fa fa-chevron-left" aria-hidden="true" style="margin-right: 7px;"></i>Back to articles list
+    </button>
+
+    <h2 class="text-center"><i>{{ data?.title }}</i></h2>
+
+    <p>
+      <img src="{{ data?.image }}" width="250" height="250" style="float: left; margin-right: 12px; margin-bottom: 7px;">
+      {{ data?.body }}
+    </p>
+
+    <div style="margin-top: 30px;">
+      <b>Author:</b><i>{{ data?.author.firstname + ' ' + data?.author.lastname }}</i>
     </div>
-  </h5>
-</div>
-  <div class="media" style="margin-top: 50px;" *ngFor="let comment of data?.comments">
-    <div class="media-body">
-      <h4 class="media-heading">{{ comment?.author.firstname + ' ' + comment?.author.lastname }}</h4>
-      <h5>{{ comment.message }}</h5>
+
+    <div>
+      <b>Creation date:</b><i>{{ data?.created_at | date:"dd-MM-yyyy" }}</i>
+    </div>
+
+    <div>
+      <b>Categories:</b><i *ngFor="let category of data?.category">{{ category + "; " }}</i>
+    </div>
+
+    <div class="media" style="margin-top: 50px;" *ngFor="let comment of data?.comments">
+      <div class="media-body">
+        <h4 class="media-heading">{{ comment?.author.firstname + ' ' + comment?.author.lastname }}</h4>
+        <h5>{{ comment.message }}</h5>
+      </div>
     </div>
   </div>
 </div>
