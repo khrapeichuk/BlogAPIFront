@@ -27,7 +27,9 @@ export class ArticlesComponent implements OnInit {
   }
 
   deleteArticle(id) {
-    this.articleService.deleteArticle(id);
+    this.articleService.deleteArticle(id)
+
+    location.reload();
   }
 
   getCurrentUserID() {
