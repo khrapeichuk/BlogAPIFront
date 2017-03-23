@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="col-sm-offset-4 col-sm-4">
+    <div class="thumbnail">
+      <div class="caption text-center">
+        <h3>{{ data?.message }}</h3>
+
+        <p style="margin-top: 30px;">
+          author: {{ data?.author.firstname + " " + data?.author.lastname }}
+        </p>
+        <p>
+          creation date: {{ data?.created_at | date:"dd-MM-yyyy" }}
+        </p>
+          <a href="#" class="btn btn-primary" role="button">
+            <i class="fa fa-pencil" aria-hidden="true" style="margin-right: 7px;"></i>Edit
+          </a>
+          <a href="#" class="btn btn-danger" role="button">
+            <i class="fa fa-trash-o" aria-hidden="true" style="margin-right: 7px;"></i>Delete
+          </a>
+      </div>
+    </div>
+  </div>
+</div>

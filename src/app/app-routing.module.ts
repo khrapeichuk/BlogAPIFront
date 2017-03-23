@@ -12,6 +12,8 @@ import { ArticleDetailComponent } from './components/article/article-detail.comp
 import { CreateArticleComponent } from './components/article/create-article.component';
 import { EditArticleComponent } from './components/article/edit-article.component';
 
+import { CommentComponent } from './components/comment/comment.component';
+
 const routes: Routes = [
   { path: 'login',  component: LoginComponent },
   { path: 'logout',  component: LogoutComponent },
@@ -23,6 +25,8 @@ const routes: Routes = [
   { path: 'articles/:id', component: ArticleDetailComponent },
   { path: 'create-article', component: CreateArticleComponent },
   { path: 'edit-article/:id', component: EditArticleComponent },
+
+  { path: 'article/:articleId/comment/:commentId', component: CommentComponent },
 ];
 
 @NgModule({
