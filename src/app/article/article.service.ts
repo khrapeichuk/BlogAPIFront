@@ -30,7 +30,7 @@ export class ArticleService {
       {
         title: title.value,
         body: body.value,
-        category: category.value,
+        category: category.value.split(','),
         image: image.value
       }
     );
@@ -44,7 +44,7 @@ export class ArticleService {
       {
         title: title.value,
         body: body.value,
-        category: category.value,
+        category: category.value.split(','),
         image: image.value
       }
     );
