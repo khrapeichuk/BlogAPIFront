@@ -19,7 +19,7 @@ import { EditArticleComponent } from './components/article/edit-article.componen
 import { CommentComponent } from './components/comment/comment.component';
 import { EditCommentComponent } from './components/comment/edit-comment.component';
 
-import { APIService } from "./shared/api/api.service";
+import { APIService } from "./api/api.service";
 import { UserService } from '././user/user.service';
 import { ArticleService } from '././article/article.service';
 import { LocalStorageService } from './local-storage.service';

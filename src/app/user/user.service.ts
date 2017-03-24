@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { APIService } from "../shared/api/api.service";
+import { APIService } from "../api/api.service";
 
 import 'rxjs/add/operator/toPromise';
 import {LocalStorageService} from "../local-storage.service";
