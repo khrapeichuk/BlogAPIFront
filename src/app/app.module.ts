@@ -17,6 +17,7 @@ import { CreateArticleComponent } from './components/article/create-article.comp
 import { EditArticleComponent } from './components/article/edit-article.component';
 
 import { CommentComponent } from './components/comment/comment.component';
+import { EditCommentComponent } from './components/comment/edit-comment.component';
 
 import { APIService } from "./shared/api/api.service";
 import { UserService } from '././user/user.service';
@@ -39,6 +40,7 @@ import { CommentService } from './comment/comment.service';
     EditArticleComponent,
 
     CommentComponent,
+    EditCommentComponent,
   ],
   imports: [
     BrowserModule,

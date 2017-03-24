@@ -10,7 +10,7 @@
         <p>
           creation date: {{ data?.created_at | date:"dd-MM-yyyy" }}
         </p>
-          <a href="#" class="btn btn-primary" role="button">
+          <a [routerLink]="['edit']" routerLinkActive="active" class="btn btn-primary" role="button">
             <i class="fa fa-pencil" aria-hidden="true" style="margin-right: 7px;"></i>Edit
           </a>
           <a href="#" class="btn btn-danger" role="button">
