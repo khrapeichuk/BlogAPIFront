@@ -3,27 +3,30 @@
     <div class="navbar-header">
       <a class="navbar-brand">{{ title }}</a>
     </div>
+
     <ul class="nav navbar-nav navbar-left">
-      <li *ngIf="isAuthorized()">
-        <a [routerLink]="['/articles']" routerLinkActive="active">Display articles</a>
+      <li>
+        <a [routerLink]="['/articles']" routerLinkActive="active">Articles</a>
       </li>
     </ul>
-      <ul class="nav navbar-nav navbar-right">
 
-        <li *ngIf="isAuthorized()">
-          <a [routerLink]="['/profile']" routerLinkActive="active" style="margin-right: 40px;">Profile</a>
-        </li>
-        <li *ngIf="isAuthorized()">
-          <a [routerLink]="['/logout']" routerLinkActive="active">Logout</a>
-        </li>
+    <ul class="nav navbar-nav navbar-right">
 
-        <li *ngIf="!isAuthorized()">
-          <a routerLink="/login" routerLinkActive="active">Login</a>
-        </li>
-        <li *ngIf="!isAuthorized()">
-          <a routerLink="/registration" routerLinkActive="active">Registration</a>
-        </li>
-      </ul>
+      <li *ngIf="isAuthorized()">
+        <a [routerLink]="['/profile']" routerLinkActive="active" style="margin-right: 40px;">Profile</a>
+      </li>
+      <li *ngIf="isAuthorized()">
+        <a [routerLink]="['/logout']" routerLinkActive="active">Logout</a>
+      </li>
+
+      <li *ngIf="!isAuthorized()">
+        <a [routerLink]="['/login']" routerLinkActive="active">Login</a>
+      </li>
+      <li *ngIf="!isAuthorized()">
+        <a [routerLink]="['/registration']" routerLinkActive="active">Registration</a>
+      </li>
+    </ul>
+
   </div>
 </nav>
 <div class="container-fluid">

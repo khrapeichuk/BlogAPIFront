@@ -13,10 +13,7 @@ export class ArticleService {
 
   getArticles() {
     return this.APIService.get(
-      this.articleUrl,
-      {
-        token: this.localStorageService.getParameter('token')
-      }
+      this.articleUrl, {}
     );
   }
 

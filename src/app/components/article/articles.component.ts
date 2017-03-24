@@ -35,4 +35,13 @@ export class ArticlesComponent implements OnInit {
   getCurrentUserID() {
     return this.localStorageService.getParameter('id');
   }
+
+  isAuthorized() {
+    if (this.localStorageService.getObject('currentUser')) {
+      return true;
+    }
+    else {
+      return false;
+    }
+  }
 }

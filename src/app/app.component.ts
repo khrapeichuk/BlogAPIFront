@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { LocalStorageService } from './local-storage.service';
+
 @Component({
   moduleId: module.id,
   selector: 'app-root',
@@ -9,12 +11,14 @@ import { Component, OnInit } from '@angular/core';
 export class AppComponent implements OnInit {
   title = 'Blog API';
 
+  constructor(private localStorageService: LocalStorageService) {}
+
   ngOnInit(): void {
     this.isAuthorized();
   }
 
   isAuthorized() {
-    if (localStorage.getItem('currentUser')) {
+    if (this.localStorageService.getObject('currentUser')) {
       return true;
     }
     else {
