@@ -13,7 +13,7 @@
           <a [routerLink]="['edit']" routerLinkActive="active" class="btn btn-primary" role="button">
             <i class="fa fa-pencil" aria-hidden="true" style="margin-right: 7px;"></i>Edit
           </a>
-          <a href="#" class="btn btn-danger" role="button">
+          <a class="btn btn-danger" role="button" (click)="deleteComment()">
             <i class="fa fa-trash-o" aria-hidden="true" style="margin-right: 7px;"></i>Delete
           </a>
       </div>

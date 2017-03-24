@@ -26,4 +26,15 @@ export class CommentService {
       }
     );
   }
+
+  deleteComment(articleId: string, commentId: string) {
+    return this.APIService.delete(
+      this.commentUrl + articleId + '/comments/' + commentId,
+      {
+        token: this.localStorageService.getParameter('token')
+      }
+    ).toPromise()
+      .then(() => null)
+      .catch(() => null);
+  }
 }
