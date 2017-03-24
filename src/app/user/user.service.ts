@@ -54,4 +54,13 @@ export class UserService {
       }
     );
   }
+
+  isAuthorized() {
+    if (this.localStorageService.getObject('currentUser')) {
+      return true;
+    }
+    else {
+      return false;
+    }
+  }
 }

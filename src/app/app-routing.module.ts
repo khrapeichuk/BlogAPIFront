@@ -15,20 +15,22 @@ import { EditArticleComponent } from './components/article/edit-article.componen
 import { CommentComponent } from './components/comment/comment.component';
 import { EditCommentComponent } from './components/comment/edit-comment.component';
 
+import { AuthenticationGuard } from './guards/authenticationGuard';
+
 const routes: Routes = [
   { path: 'login',  component: LoginComponent },
   { path: 'logout',  component: LogoutComponent },
   { path: 'registration', component: RegistrationComponent },
-  { path: 'profile',  component: ProfileComponent },
-  { path: 'edit-profile',  component: EditProfileComponent },
+  { path: 'profile',  component: ProfileComponent, canActivate: [AuthenticationGuard] },
+  { path: 'edit-profile',  component: EditProfileComponent, canActivate: [AuthenticationGuard] },
 
-  { path: 'articles', component: ArticlesComponent},
-  { path: 'articles/:id', component: ArticleDetailComponent },
-  { path: 'create-article', component: CreateArticleComponent },
-  { path: 'edit-article/:id', component: EditArticleComponent },
+  { path: 'articles', component: ArticlesComponent },
+  { path: 'articles/:id', component: ArticleDetailComponent, canActivate: [AuthenticationGuard] },
+  { path: 'create-article', component: CreateArticleComponent, canActivate: [AuthenticationGuard] },
+  { path: 'edit-article/:id', component: EditArticleComponent, canActivate: [AuthenticationGuard] },
 
-  { path: 'articles/:articleId/comment/:commentId', component: CommentComponent },
-  { path: 'articles/:articleId/comment/:commentId/edit', component: EditCommentComponent },
+  { path: 'articles/:articleId/comment/:commentId', component: CommentComponent, canActivate: [AuthenticationGuard] },
+  { path: 'articles/:articleId/comment/:commentId/edit', component: EditCommentComponent, canActivate: [AuthenticationGuard] },
 ];
 
 @NgModule({
