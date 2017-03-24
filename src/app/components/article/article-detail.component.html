@@ -37,9 +37,14 @@
           <div class="media-body">
             <b class="media-heading">{{ comment?.author.firstname + ' ' + comment?.author.lastname }}</b>
             <i class="pull-right">{{ comment?.created_at | date }}</i>
-            <a [routerLink]="['/articles/', data?._id, 'comment', comment?._id ]" routerLinkActive="active">
+            <div *ngIf="comment.author._id == getCurrentUserID()">
+              <a [routerLink]="['/articles/', data?._id, 'comment', comment?._id ]" routerLinkActive="active">
+                <p>{{ comment.message }}</p>
+              </a>
+            </div>
+            <div *ngIf="comment.author._id != getCurrentUserID()">
               <p>{{ comment.message }}</p>
-            </a>
+            </div>
           </div>
         </div>
 
