@@ -19,6 +19,15 @@ export class UserService {
     );
   }
 
+  getAllUsers() {
+    return this.APIService.get(
+      this.userUrl,
+      {
+        token: this.localStorageService.getParameter('token')
+      }
+    );
+  }
+
   login(email, password) {
     return this.APIService.post(
       this.userUrl + 'login',

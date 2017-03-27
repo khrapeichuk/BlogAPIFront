@@ -19,6 +19,8 @@ import { EditArticleComponent } from './components/article/edit-article.componen
 import { CommentComponent } from './components/comment/comment.component';
 import { EditCommentComponent } from './components/comment/edit-comment.component';
 
+import { UsersComponent } from './components/admin/users.component';
+
 import { APIService } from "./api/api.service";
 import { UserService } from '././user/user.service';
 import { ArticleService } from '././article/article.service';
@@ -43,6 +45,8 @@ import { AuthenticationGuard } from './guards/authenticationGuard';
 
     CommentComponent,
     EditCommentComponent,
+
+    UsersComponent,
   ],
   imports: [
     BrowserModule,

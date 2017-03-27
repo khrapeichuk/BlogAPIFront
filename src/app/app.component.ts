@@ -31,7 +31,7 @@ export class AppComponent implements OnInit {
   // isAdmin() {
   //   let rights = this.localStorageService.getParameter('rights');
   //
-  //   if(this.localStorageService.getParameter('rights').contains("ADMIN")) {
+  //   if(rights.contains("ADMIN")) {
   //     return true;
   //   }
   //   else {
