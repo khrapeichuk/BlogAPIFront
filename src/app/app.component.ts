@@ -16,7 +16,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.isAuthorized();
-    //this.isAdmin();
+    this.isAdmin();
   }
 
   isAuthorized() {
@@ -28,14 +28,14 @@ export class AppComponent implements OnInit {
     }
   }
 
-  // isAdmin() {
-  //   let rights = this.localStorageService.getParameter('rights');
-  //
-  //   if(rights.contains("ADMIN")) {
-  //     return true;
-  //   }
-  //   else {
-  //     return false;
-  //   }
-  // }
+  isAdmin() {
+    let rights = this.localStorageService.getParameter('rights');
+
+    if(rights.indexOf("ADMIN") != -1) {
+      return true;
+    }
+    else {
+      return false;
+    }
+  }
 }
