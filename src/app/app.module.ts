@@ -29,6 +29,7 @@ import { LocalStorageService } from './local-storage.service';
 import { CommentService } from './comment/comment.service';
 
 import { AuthenticationGuard } from './guards/authenticationGuard';
+import { AdminGuard } from './guards/adminGuard';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,8 @@ import { AuthenticationGuard } from './guards/authenticationGuard';
     LocalStorageService,
     CommentService,
 
-    AuthenticationGuard
+    AuthenticationGuard,
+    AdminGuard
   ],
   bootstrap: [AppComponent]
 })
