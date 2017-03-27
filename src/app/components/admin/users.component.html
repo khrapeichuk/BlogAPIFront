@@ -23,7 +23,7 @@
           <button class="btn btn-danger pull-right" style="margin-left: 15px;" (click)="deleteUser(user._id)">
             <i class="fa fa-trash-o" aria-hidden="true" style="margin-right: 7px;"></i>Delete user
           </button>
-          <button class="btn btn-info pull-right" [routerLink]="['admin/edit-user', user._id]" routerLinkActive="active">
+          <button class="btn btn-info pull-right" [routerLink]="['edit', user._id]" routerLinkActive="active">
             <i class="fa fa-pencil" aria-hidden="true" style="margin-right: 7px;"></i>Edit user
           </button>
 

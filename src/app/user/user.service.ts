@@ -12,7 +12,7 @@ export class UserService {
 
   getUserById(id: string) {
     return this.APIService.get(
-      this.userUrl + this.localStorageService.getParameter('id'),
+      this.userUrl + id,
       {
         token: this.localStorageService.getParameter('token')
       }
@@ -50,9 +50,9 @@ export class UserService {
     );
   }
 
-  editProfile(firstname, lastname, email) {
+  editProfile(id, firstname, lastname, email) {
     return this.APIService.put (
-      this.userUrl + this.localStorageService.getParameter('id'),
+      this.userUrl + id,
       {
         token: this.localStorageService.getParameter('token')
       },

@@ -16,6 +16,7 @@ import { CommentComponent } from './components/comment/comment.component';
 import { EditCommentComponent } from './components/comment/edit-comment.component';
 
 import { UsersComponent } from './components/admin/users.component';
+import { EditUserComponent } from './components/admin/edit-user.component';
 
 import { AuthenticationGuard } from './guards/authenticationGuard';
 
@@ -35,6 +36,7 @@ const routes: Routes = [
   { path: 'articles/:articleId/comment/:commentId/edit', component: EditCommentComponent, canActivate: [AuthenticationGuard] },
 
   { path: 'admin/users', component: UsersComponent },
+  { path: 'admin/users/edit/:id', component: EditUserComponent },
 ];
 
 @NgModule({

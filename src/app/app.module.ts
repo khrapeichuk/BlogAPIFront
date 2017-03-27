@@ -20,6 +20,7 @@ import { CommentComponent } from './components/comment/comment.component';
 import { EditCommentComponent } from './components/comment/edit-comment.component';
 
 import { UsersComponent } from './components/admin/users.component';
+import { EditUserComponent } from './components/admin/edit-user.component';
 
 import { APIService } from "./api/api.service";
 import { UserService } from '././user/user.service';
@@ -47,6 +48,7 @@ import { AuthenticationGuard } from './guards/authenticationGuard';
     EditCommentComponent,
 
     UsersComponent,
+    EditUserComponent,
   ],
   imports: [
     BrowserModule,
