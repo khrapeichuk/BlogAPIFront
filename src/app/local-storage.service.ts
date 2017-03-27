@@ -13,7 +13,7 @@ export class LocalStorageService {
     return JSON.parse(localStorage.getItem(name));
   }
 
-  getParameter (param){
+  getParameter (param): any {
     let user: User;
     user = this.getObject('currentUser');
     switch (param){
@@ -23,6 +23,8 @@ export class LocalStorageService {
         return user.email;
       case 'token':
         return user.token;
+      case 'rights':
+        return user.rights;
     }
   }
 }

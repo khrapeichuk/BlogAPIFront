@@ -8,6 +8,7 @@ import { LocalStorageService } from './local-storage.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
+
 export class AppComponent implements OnInit {
   title = 'Blog API';
 
@@ -15,6 +16,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.isAuthorized();
+    //this.isAdmin();
   }
 
   isAuthorized() {
@@ -25,4 +27,15 @@ export class AppComponent implements OnInit {
       return false;
     }
   }
+
+  // isAdmin() {
+  //   let rights = this.localStorageService.getParameter('rights');
+  //
+  //   if(this.localStorageService.getParameter('rights').contains("ADMIN")) {
+  //     return true;
+  //   }
+  //   else {
+  //     return false;
+  //   }
+  // }
 }

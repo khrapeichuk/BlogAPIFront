@@ -26,7 +26,17 @@ export class LoginComponent {
       .subscribe(
         (response: Response) => {
           this.data = response.json();
-          this.currentUser = new User(response.json().user._id, '', '', response.json().user.email, '', response.json().token, '', '', null, '');
+          this.currentUser = new User(response.json().user._id,
+                                      response.json().user.firstname,
+                                      response.json().user.lastname,
+                                      response.json().user.email,
+                                      '',
+                                      response.json().token,
+                                      response.json().user.created_at,
+                                      response.json().user.updated_at,
+                                      response.json().user.is_subscribed,
+                                      response.json().user.rights
+          );
 
           this.localStorageService.setObject('currentUser', this.currentUser);
 

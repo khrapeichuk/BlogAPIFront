@@ -8,7 +8,7 @@ export class User {
   created_at: string;
   updated_at: string;
   is_subscribed: boolean;
-  rights: string;
+  rights: any;
 
   constructor(_id: string,
               firstname: string,
@@ -19,7 +19,7 @@ export class User {
               created_at: string,
               updated_at: string,
               is_subscribed: boolean,
-              rights: string)
+              rights: any)
   {
     this._id = _id;
     this.firstname = firstname;
