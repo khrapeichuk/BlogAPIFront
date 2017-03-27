@@ -82,4 +82,17 @@ export class UserService {
       return false;
     }
   }
+
+  isAdmin() {
+    if(this.localStorageService.getObject('currentUser')){
+      let rights = this.localStorageService.getParameter('rights');
+
+      if(rights.indexOf("ADMIN") != -1) {
+        return true;
+      }
+      else {
+        return false;
+      }
+    }
+  }
 }
