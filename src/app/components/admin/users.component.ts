@@ -24,4 +24,10 @@ export class UsersComponent implements OnInit {
         this.data = response.json();
       });
   }
+
+  deleteUser(id) {
+    this.userService.deleteUser(id);
+
+    location.reload();
+  }
 }

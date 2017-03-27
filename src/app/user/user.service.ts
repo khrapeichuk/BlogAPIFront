@@ -64,6 +64,16 @@ export class UserService {
     );
   }
 
+  deleteUser(id: string){
+    return this.APIService.delete(this.userUrl + id,
+      {
+        token: this.localStorageService.getParameter('token')
+      }
+    ).toPromise()
+      .then(() => null)
+      .catch(() => null);
+  }
+
   isAuthorized() {
     if (this.localStorageService.getObject('currentUser')) {
       return true;

@@ -1,30 +1,35 @@
 <div class="row">
   <div class="col-sm-offset-2 col-sm-8">
 
-    <div class="media" style="margin-top: 50px;" *ngFor="let user of data?.users">
-      <div class="media-left">
-        <img class="media-object" src="default-profile.png">
-      </div>
+    <div class="media" *ngFor="let user of data?.users">
 
-      <div class="media-body">
-        <h4 class="media-heading">{{ user.firstname + " " + user.lastname }}</h4>
-        <div style="display: inline-block">
-          <h5>email: {{ user.email }}</h5>
+      <div style="margin-top: 50px;" *ngIf="!user.hasOwnProperty('deleted_at')">
+
+        <div class="media-left">
+          <img class="media-object" src="default-profile.png">
         </div>
 
-        <div style="display: inline-block; margin-left: 100px;">rights:</div>
-        <div style="display: inline-block;" *ngFor="let right of user.rights">
-          {{ right + "; " }}
+        <div class="media-body">
+          <h4 class="media-heading">{{ user.firstname + " " + user.lastname }}</h4>
+          <div style="display: inline-block">
+            <h5>email: {{ user.email }}</h5>
+          </div>
+
+          <div style="display: inline-block; margin-left: 100px;">rights:</div>
+          <div style="display: inline-block;" *ngFor="let right of user.rights">
+            {{ right + "; " }}
+          </div>
+
+          <button class="btn btn-danger pull-right" style="margin-left: 15px;" (click)="deleteUser(user._id)">
+            <i class="fa fa-trash-o" aria-hidden="true" style="margin-right: 7px;"></i>Delete user
+          </button>
+          <button class="btn btn-info pull-right" [routerLink]="['admin/edit-user', user._id]" routerLinkActive="active">
+            <i class="fa fa-pencil" aria-hidden="true" style="margin-right: 7px;"></i>Edit user
+          </button>
+
+          <p>registration date: {{ user.created_at | date:"dd-MM-yyyy" }}</p>
         </div>
 
-        <button class="btn btn-danger pull-right" style="margin-left: 15px;" [routerLink]="['admin/delete-user', user._id]" routerLinkActive="active">
-          <i class="fa fa-trash-o" aria-hidden="true" style="margin-right: 7px;"></i>Delete user
-        </button>
-        <button class="btn btn-info pull-right" [routerLink]="['admin/edit-user', user._id]" routerLinkActive="active">
-          <i class="fa fa-pencil" aria-hidden="true" style="margin-right: 7px;"></i>Edit user
-        </button>
-
-        <p>registration date: {{ user.created_at | date:"dd-MM-yyyy" }}</p>
       </div>
 
     </div>
