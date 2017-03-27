@@ -29,11 +29,11 @@ export class EditProfileComponent implements OnInit {
       });
   }
 
-  editProfile (firstname: HTMLInputElement, lastname: HTMLInputElement, email: HTMLInputElement) {
+  editProfile (firstname: HTMLInputElement, lastname: HTMLInputElement, email: HTMLInputElement, rights:HTMLInputElement) {
     this.error = null;
     let id = this.localStorageService.getParameter('id');
 
-    this.userService.editProfile(id, firstname, lastname, email)
+    this.userService.editProfile(id, firstname, lastname, email, rights)
       .subscribe(
         (response: Response) => {
           this.data = response.json();

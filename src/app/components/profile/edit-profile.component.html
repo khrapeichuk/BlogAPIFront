@@ -21,9 +21,11 @@
     </div>
   </div>
 
+  <input type="hidden" class="form-control" id="rights" value="{{ data?.rights }}" #rights>
+
   <div class="form-group">
     <div class="col-sm-offset-4 col-sm-8">
-      <button type="submit" class="btn btn-success"(click)="editProfile(firstname, lastname, email)">
+      <button type="submit" class="btn btn-success"(click)="editProfile(firstname, lastname, email, rights)">
         <i class="fa fa-check" aria-hidden="true" style="margin-right: 7px;"></i>Save
       </button>
     </div>

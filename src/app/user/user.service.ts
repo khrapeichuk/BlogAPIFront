@@ -50,7 +50,7 @@ export class UserService {
     );
   }
 
-  editProfile(id, firstname, lastname, email) {
+  editProfile(id, firstname, lastname, email, rights) {
     return this.APIService.put (
       this.userUrl + id,
       {
@@ -59,7 +59,8 @@ export class UserService {
       {
         firstname: firstname.value,
         lastname: lastname.value,
-        email: email.value
+        email: email.value,
+        rights: rights.value.split(',')
       }
     );
   }
