@@ -6,14 +6,14 @@
       <input type="text" class="form-control" id="firstname" placeholder="First name" name="firstname" [formControl]="registrationForm.controls['firstname']" #firstname>
 
       <div *ngIf="registrationForm.controls['firstname'].hasError('required') && registrationForm.controls['firstname'].touched" class="alert alert-danger" style="margin-top: 10px;">
-        You must enter a last name.
+        You must enter a first name.
       </div>
       <div *ngIf="registrationForm.controls['firstname'].hasError('minlength') && registrationForm.controls['firstname'].touched" class="alert alert-danger" style="margin-top: 10px;">
-        Your last name must be at least 3 characters long.
+        Your first name must be at least 3 characters long.
       </div>
 
-      <div *ngIf="registrationForm.controls['firstname'].hasError('required') && registrationForm.controls['firstname'].touched" class="alert alert-danger" style="margin-top: 10px;">
-        You must enter a first name.
+      <div *ngIf="registrationForm.controls['firstname'].hasError('maxlength') && registrationForm.controls['firstname'].touched" class="alert alert-danger" style="margin-top: 10px;">
+        Your first name cannot exceed 15 characters.
       </div>
 
     </div>
