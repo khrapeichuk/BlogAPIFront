@@ -1,21 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { Response } from '@angular/http';
-import { ActivatedRoute, Params } from '@angular/router';
-import {Location} from '@angular/common';
+import { ActivatedRoute, Router, Params } from '@angular/router';
 
 import { CommentService } from '../../comment/comment.service';
 
-
 @Component({
-  selector: 'comment',
-  templateUrl: 'comment.component.html',
+  selector: 'edit-comment',
+  templateUrl: 'edit.component.html',
   styleUrls: ['../../app.component.css']
 })
 
-export class CommentComponent implements OnInit{
+export class EditCommentComponent implements OnInit{
   data: Object;
 
-  constructor (private commentService: CommentService, private activatedRoute: ActivatedRoute, private location: Location) {}
+  constructor (private commentService: CommentService, private activatedRoute: ActivatedRoute, private  router: Router) {}
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((params: Params) => {
@@ -32,18 +30,17 @@ export class CommentComponent implements OnInit{
       });
   }
 
-  deleteComment(){
+  editComment(message) {
     this.activatedRoute.params.subscribe((params: Params) => {
       let articleId = params['articleId'];
       let commentId = params['commentId'];
 
-      this.commentService.deleteComment(articleId, commentId);
+      this.commentService.editComment(articleId, commentId, message)
+        .subscribe((response: Response) => {
+          this.data = response.json();
+        });
 
-      this.location.back();
+      this.router.navigate(['articles', articleId]);
     });
-  }
-
-  back() {
-    this.location.back();
   }
 }

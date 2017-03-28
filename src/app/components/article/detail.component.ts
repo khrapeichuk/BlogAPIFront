@@ -7,7 +7,7 @@ import { LocalStorageService } from '../../local-storage.service';
 
 @Component({
   selector: 'article-detail',
-  templateUrl: 'article-detail.component.html',
+  templateUrl: 'detail.component.html',
   styleUrls: ['../../app.component.css']
 })
 
@@ -32,6 +32,8 @@ export class ArticleDetailComponent implements OnInit {
 
   addComment(articleId, comment){
     this.articleService.addComment(articleId, comment);
+
+    location.reload();
   }
 
   getCurrentUserID() {

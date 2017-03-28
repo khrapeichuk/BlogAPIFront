@@ -6,7 +6,7 @@ import { LocalStorageService } from "../../local-storage.service";
 
 @Component({
   selector: 'profile',
-  templateUrl: 'profile.component.html',
+  templateUrl: 'index.component.html',
   styleUrls: ['../../app.component.css']
 })
 

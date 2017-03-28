@@ -5,11 +5,11 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import { UserService } from '../../user/user.service';
 
-import {LocalStorageService} from "../../local-storage.service";
+import { LocalStorageService } from "../../local-storage.service";
 
 @Component({
   selector: 'edit-profile',
-  templateUrl: 'edit-profile.component.html',
+  templateUrl: 'edit.component.html',
   styleUrls: ['../../app.component.css']
 })
 
