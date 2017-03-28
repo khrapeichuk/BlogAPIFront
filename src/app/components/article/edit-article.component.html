@@ -1,9 +1,14 @@
 <form class="form-horizontal" style="margin-top: 100px;">
 
-  <div class="form-group">
+  <div class="form-group" [ngClass]="{'has-error':!editArticleForm.controls['title'].valid && editArticleForm.controls['title'].touched}">
     <label for="title" class="col-sm-2 col-sm-offset-1 control-label">Title</label>
     <div class="col-sm-6">
-      <input type="text" class="form-control" id="title" value="{{ data?.title }}" #title>
+      <input type="text" class="form-control" id="title" name="title" value="{{ data?.title }}" [formControl]="editArticleForm.controls['title']" #title>
+
+      <div *ngIf="editArticleForm.controls['title'].hasError('required') && editArticleForm.controls['title'].touched" class="alert alert-danger" style="margin-top: 10px;">
+        You must enter a title for article.
+      </div>
+
     </div>
   </div>
 
@@ -30,7 +35,7 @@
 
   <div class="form-group">
     <div class="col-sm-offset-3 col-sm-9">
-      <button type="submit" class="btn btn-success"(click)="editArticle(data?._id, title, body, category, image)">
+      <button type="submit" class="btn btn-success" (click)="editArticle(data?._id, title, body, category, image)">
         <i class="fa fa-check" aria-hidden="true" style="margin-right: 7px;"></i>Save
       </button>
     </div>

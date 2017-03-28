@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Response } from '@angular/http';
 import { Router, ActivatedRoute, Params } from '@angular/router';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import { ArticleService } from '../../article/article.service';
-
-import {  } from '@angular/router';
 
 @Component({
   selector: 'edit-article',
@@ -15,8 +14,13 @@ import {  } from '@angular/router';
 export class EditArticleComponent implements OnInit {
   data: Object;
   error: null;
+  editArticleForm : FormGroup;
 
-  constructor(private articleService: ArticleService, private  activatedRoute: ActivatedRoute, private router: Router) { }
+  constructor(fb: FormBuilder, private articleService: ArticleService, private  activatedRoute: ActivatedRoute, private router: Router) {
+    this.editArticleForm = fb.group({
+      'title' : [null, Validators.required]
+    })
+  }
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((params: Params) => {

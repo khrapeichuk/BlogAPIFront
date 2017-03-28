@@ -1,9 +1,14 @@
 <form class="form-horizontal" style="margin-top: 100px;">
 
-  <div class="form-group">
+  <div class="form-group" [ngClass]="{'has-error':!createArticleForm.controls['title'].valid && createArticleForm.controls['title'].touched}">
     <label for="title" class="col-sm-2 col-sm-offset-1 control-label">Title</label>
     <div class="col-sm-6">
-      <input type="text" class="form-control" id="title" placeholder="Title" #title>
+      <input type="text" class="form-control" id="title" name="title" [formControl]="createArticleForm.controls['title']" #title>
+
+      <div *ngIf="createArticleForm.controls['title'].hasError('required') && createArticleForm.controls['title'].touched" class="alert alert-danger" style="margin-top: 10px;">
+        You must enter a title for article.
+      </div>
+
     </div>
   </div>
 
@@ -36,7 +41,7 @@
 
   <div class="form-group">
     <div class="col-sm-offset-3 col-sm-9">
-      <button type="submit" class="btn btn-success"(click)="createArticle(title, body, category, image)">
+      <button type="submit" class="btn btn-success"[disabled]="!createArticleForm.valid" (click)="createArticle(title, body, category, image)">
         <i class="fa fa-check" aria-hidden="true" style="margin-right: 7px;"></i>Add
       </button>
     </div>
