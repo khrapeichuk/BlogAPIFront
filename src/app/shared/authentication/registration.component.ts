@@ -24,7 +24,9 @@ export class RegistrationComponent {
     let emailRegex = '^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$';
 
     this.registrationForm = fb.group({
-      'email' : [null, Validators.compose([Validators.required, Validators.pattern(emailRegex)])],
+      'firstname': [null, Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(15)])],
+      'lastname': [null, Validators.compose([Validators.required, Validators.minLength(5), Validators.maxLength(15)])],
+      'email': [null, Validators.compose([Validators.required, Validators.pattern(emailRegex)])],
       'password': [null, Validators.required],
     })
   }
