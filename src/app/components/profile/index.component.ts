@@ -13,7 +13,7 @@ import { LocalStorageService } from "../../local-storage.service";
 export class ProfileComponent implements OnInit{
   data: Object;
 
-  constructor (private userService: UserService, private localStorageService: LocalStorageService) {}
+  constructor(private userService: UserService, private localStorageService: LocalStorageService) {}
 
   ngOnInit(): void {
     this.getUserById();

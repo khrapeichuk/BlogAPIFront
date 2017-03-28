@@ -39,7 +39,7 @@ export class UserService {
   }
 
   registration(firstname, lastname, email, password) {
-    return this.APIService.post (
+    return this.APIService.post(
       this.userUrl,
       {
         firstname: firstname.value,
@@ -51,7 +51,7 @@ export class UserService {
   }
 
   editProfile(id, firstname, lastname, email, rights) {
-    return this.APIService.put (
+    return this.APIService.put(
       this.userUrl + id,
       {
         token: this.localStorageService.getParameter('token')
@@ -75,6 +75,12 @@ export class UserService {
       .catch(() => null);
   }
 
+  getCurrentUserID() {
+    if(this.isAuthorized()) {
+      return this.localStorageService.getParameter('id');
+    }
+  }
+
   isAuthorized() {
     if (this.localStorageService.getObject('currentUser')) {
       return true;
@@ -85,7 +91,7 @@ export class UserService {
   }
 
   isAdmin() {
-    if(this.localStorageService.getObject('currentUser')){
+    if(this.isAuthorized()){
       let rights = this.localStorageService.getParameter('rights');
 
       if(rights.indexOf("ADMIN") != -1) {

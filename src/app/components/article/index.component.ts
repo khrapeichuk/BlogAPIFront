@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Response } from '@angular/http';
 
 import { ArticleService } from '../../article/article.service';
-import { LocalStorageService } from '../../local-storage.service';
+import { UserService } from '../../user/user.service';
 
 @Component({
   selector: 'articles',
@@ -13,7 +13,7 @@ import { LocalStorageService } from '../../local-storage.service';
 export class ArticlesComponent implements OnInit {
   data: Object;
 
-  constructor (private articleService: ArticleService, private localStorageService: LocalStorageService) {}
+  constructor(private articleService: ArticleService, private userService: UserService) {}
 
   ngOnInit(): void {
     this.displayArticles();
@@ -33,15 +33,10 @@ export class ArticlesComponent implements OnInit {
   }
 
   getCurrentUserID() {
-    return this.localStorageService.getParameter('id');
+    return this.userService.getCurrentUserID();
   }
 
   isAuthorized() {
-    if (this.localStorageService.getObject('currentUser')) {
-      return true;
-    }
-    else {
-      return false;
-    }
+    return this.userService.isAuthorized();
   }
 }

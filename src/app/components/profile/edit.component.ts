@@ -39,7 +39,7 @@ export class EditProfileComponent implements OnInit {
       });
   }
 
-  editProfile (firstname: HTMLInputElement, lastname: HTMLInputElement, email: HTMLInputElement, rights:HTMLInputElement) {
+  editProfile(firstname: HTMLInputElement, lastname: HTMLInputElement, email: HTMLInputElement, rights:HTMLInputElement) {
     this.error = null;
     let id = this.localStorageService.getParameter('id');
 

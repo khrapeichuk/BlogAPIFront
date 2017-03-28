@@ -3,7 +3,7 @@ import { Response } from '@angular/http';
 import { ActivatedRoute, Params } from '@angular/router';
 
 import { ArticleService } from '../../article/article.service';
-import { LocalStorageService } from '../../local-storage.service';
+import { UserService } from '../../user/user.service';
 
 @Component({
   selector: 'article-detail',
@@ -14,7 +14,7 @@ import { LocalStorageService } from '../../local-storage.service';
 export class ArticleDetailComponent implements OnInit {
   data: Object;
 
-  constructor (private articleService: ArticleService, private activatedRoute: ActivatedRoute, private localStorageService: LocalStorageService) {}
+  constructor (private articleService: ArticleService, private activatedRoute: ActivatedRoute, private userService: UserService) {}
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((params: Params) => {
@@ -37,6 +37,6 @@ export class ArticleDetailComponent implements OnInit {
   }
 
   getCurrentUserID() {
-    return this.localStorageService.getParameter('id');
+    return this.userService.getCurrentUserID();
   }
 }

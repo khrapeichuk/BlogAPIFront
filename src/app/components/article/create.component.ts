@@ -16,7 +16,7 @@ export class CreateArticleComponent {
   error: null;
   createArticleForm : FormGroup;
 
-  constructor (fb: FormBuilder, private articleService: ArticleService, private router: Router) {
+  constructor(fb: FormBuilder, private articleService: ArticleService, private router: Router) {
     this.createArticleForm = fb.group({
       'title' : [null, Validators.required]
     })

@@ -32,7 +32,7 @@ export class CommentComponent implements OnInit{
       });
   }
 
-  deleteComment(){
+  deleteComment() {
     this.activatedRoute.params.subscribe((params: Params) => {
       let articleId = params['articleId'];
       let commentId = params['commentId'];

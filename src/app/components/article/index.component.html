@@ -25,16 +25,14 @@
         <p style="margin-top: 12px;">{{ article.body | slice: 0: 990 }} {{ "..." }}</p>
       </div>
 
-      <div *ngIf="isAuthorized()">
-        <div class="pull-right" *ngIf="article.author._id == getCurrentUserID()">
-          <button class="btn btn-danger pull-right" style="margin-left: 15px;" (click)="deleteArticle(article._id)">
-            <i class="fa fa-trash-o" aria-hidden="true" style="margin-right: 7px;"></i>Delete article
-          </button>
+      <div class="pull-right" *ngIf="article.author._id == getCurrentUserID()">
+        <button class="btn btn-danger pull-right" style="margin-left: 15px;" (click)="deleteArticle(article._id)">
+          <i class="fa fa-trash-o" aria-hidden="true" style="margin-right: 7px;"></i>Delete article
+        </button>
 
-          <button class="btn btn-warning pull-right" [routerLink]="['/edit-article', article._id]" routerLinkActive="active">
-            <i class="fa fa-pencil" aria-hidden="true" style="margin-right: 7px;"></i>Edit article
-          </button>
-        </div>
+        <button class="btn btn-warning pull-right" [routerLink]="['/edit-article', article._id]" routerLinkActive="active">
+          <i class="fa fa-pencil" aria-hidden="true" style="margin-right: 7px;"></i>Edit article
+        </button>
       </div>
 
     </div>
