@@ -39,6 +39,14 @@
     </div>
   </div>
 
+  <div *ngIf= "error">
+    <div class="form-group">
+      <div class="col-sm-offset-4 col-sm-4">
+        <div class="alert alert-danger" role="alert">{{error}}</div>
+      </div>
+    </div>
+  </div>
+
   <div class="form-group">
     <div class="col-sm-offset-4 col-sm-8">
       <button type="submit" class="btn btn-success" [disabled]="!registrationForm.valid" (click)="registration(firstname, lastname, email, password)">
