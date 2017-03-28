@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Response } from '@angular/http';
 import { Router } from '@angular/router';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import { UserService } from '../../user/user.service';
 import { User } from "../../user/user.model";
@@ -17,8 +18,16 @@ export class RegistrationComponent {
   currentUser: User;
   user: User;
   error: string;
+  registrationForm : FormGroup;
 
-  constructor(private userService: UserService, private localStorageService: LocalStorageService, private router: Router) { }
+  constructor(fb: FormBuilder, private userService: UserService, private localStorageService: LocalStorageService, private router: Router) {
+    let emailRegex = '^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$';
+
+    this.registrationForm = fb.group({
+      'email' : [null, Validators.compose([Validators.required, Validators.pattern(emailRegex)])],
+      'password': [null, Validators.required],
+    })
+  }
 
   registration (firstname: HTMLInputElement, lastname: HTMLInputElement, email: HTMLInputElement, password: HTMLInputElement) {
     this.error = null;
