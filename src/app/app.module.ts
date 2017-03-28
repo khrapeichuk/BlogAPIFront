@@ -31,6 +31,8 @@ import { CommentService } from './comment/comment.service';
 import { AuthenticationGuard } from './guards/authenticationGuard';
 import { AdminGuard } from './guards/adminGuard';
 
+import { RelativeTimePipe } from './pipes/relative_time.pipe';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,6 +52,8 @@ import { AdminGuard } from './guards/adminGuard';
 
     UsersComponent,
     EditUserComponent,
+
+    RelativeTimePipe
   ],
   imports: [
     BrowserModule,
