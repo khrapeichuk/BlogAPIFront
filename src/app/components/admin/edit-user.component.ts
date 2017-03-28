@@ -27,7 +27,8 @@ export class EditUserComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.activatedRoute.params.subscribe((params: Params) => {
+    this.activatedRoute.params
+      .subscribe((params: Params) => {
       let userId = params['id'];
       this.getUserData(userId);
     });
@@ -43,12 +44,12 @@ export class EditUserComponent implements OnInit {
   editUser(firstname: HTMLInputElement, lastname: HTMLInputElement, email: HTMLInputElement, rights: HTMLInputElement) {
     this.error = null;
 
-    this.activatedRoute.params.subscribe((params: Params) => {
+    this.activatedRoute.params
+      .subscribe((params: Params) => {
       let id = params['id'];
 
     this.userService.editProfile(id, firstname, lastname, email, rights)
-      .subscribe(
-        (response: Response) => {
+      .subscribe((response: Response) => {
           this.data = response.json();
 
           this.router.navigate(['admin/users']);

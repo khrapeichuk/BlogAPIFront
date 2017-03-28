@@ -23,7 +23,8 @@ export class EditArticleComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.activatedRoute.params.subscribe((params: Params) => {
+    this.activatedRoute.params
+      .subscribe((params: Params) => {
       let articleId = params['id'];
       this.getArticleData(articleId);
     });
@@ -33,7 +34,7 @@ export class EditArticleComponent implements OnInit {
     this.articleService.getArticleById(id)
       .subscribe((response: Response) => {
         this.data = response.json();
-      });
+    });
   }
 
   editArticle(articleId, title: HTMLInputElement, body: HTMLInputElement, category: HTMLInputElement, image: HTMLInputElement) {

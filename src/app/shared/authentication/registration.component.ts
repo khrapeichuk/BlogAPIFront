@@ -3,8 +3,9 @@ import { Response } from '@angular/http';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
-import { UserService } from '../../user/user.service';
 import { User } from "../../user/user.model";
+
+import { UserService } from '../../user/user.service';
 import { LocalStorageService } from "../../local-storage.service";
 
 @Component({
@@ -31,7 +32,7 @@ export class RegistrationComponent {
     })
   }
 
-  registration (firstname: HTMLInputElement, lastname: HTMLInputElement, email: HTMLInputElement, password: HTMLInputElement) {
+  registration(firstname: HTMLInputElement, lastname: HTMLInputElement, email: HTMLInputElement, password: HTMLInputElement) {
     this.error = null;
     this.userService.registration(firstname, lastname, email, password)
       .subscribe(

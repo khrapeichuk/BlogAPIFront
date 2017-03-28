@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
 import { Response } from '@angular/http';
 import { Router } from '@angular/router';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+
+import { User } from "../../user/user.model";
 
 import { UserService } from '../../user/user.service';
-import { User } from "../../user/user.model";
 import { LocalStorageService } from "../../local-storage.service";
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+
 
 @Component({
   selector: 'login',

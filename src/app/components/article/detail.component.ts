@@ -17,20 +17,20 @@ export class ArticleDetailComponent implements OnInit {
   constructor (private articleService: ArticleService, private activatedRoute: ActivatedRoute, private userService: UserService) {}
 
   ngOnInit(): void {
-    this.activatedRoute.params.subscribe((params: Params) => {
+    this.activatedRoute.params
+      .subscribe((params: Params) => {
       let articleId = params['id'];
-      this.getArticleDetail(articleId);
-    });
+      this.getArticleDetail(articleId);});
   }
 
   getArticleDetail(id) {
     this.articleService.getArticleById(id)
       .subscribe((response: Response) => {
         this.data = response.json();
-      });
+    });
   }
 
-  addComment(articleId, comment){
+  addComment(articleId, comment) {
     this.articleService.addComment(articleId, comment);
 
     location.reload();

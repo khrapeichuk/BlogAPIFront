@@ -54,10 +54,10 @@ export class APIService {
     );
   }
 
-  convertObjectToUrlParameters (object) {
+  convertObjectToUrlParameters(object) {
     let UrlParameters = "";
-    for (let key in object) {
-      if (UrlParameters != "") {
+    for(let key in object) {
+      if(UrlParameters != "") {
         UrlParameters += "&";
       }
       UrlParameters += key + "=" + encodeURIComponent(object[key]);

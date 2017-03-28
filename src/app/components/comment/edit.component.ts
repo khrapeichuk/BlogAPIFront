@@ -16,7 +16,8 @@ export class EditCommentComponent implements OnInit{
   constructor (private commentService: CommentService, private activatedRoute: ActivatedRoute, private  router: Router) {}
 
   ngOnInit(): void {
-    this.activatedRoute.params.subscribe((params: Params) => {
+    this.activatedRoute.params
+      .subscribe((params: Params) => {
       let articleId = params['articleId'];
       let commentId = params['commentId'];
       this.getCommentById(articleId, commentId);
@@ -31,14 +32,15 @@ export class EditCommentComponent implements OnInit{
   }
 
   editComment(message) {
-    this.activatedRoute.params.subscribe((params: Params) => {
+    this.activatedRoute.params
+      .subscribe((params: Params) => {
       let articleId = params['articleId'];
       let commentId = params['commentId'];
 
       this.commentService.editComment(articleId, commentId, message)
         .subscribe((response: Response) => {
           this.data = response.json();
-        });
+      });
 
       this.router.navigate(['articles', articleId]);
     });

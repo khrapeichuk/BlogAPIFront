@@ -47,7 +47,7 @@ export class ArticleService {
     );
   }
 
-  deleteArticle(id: string){
+  deleteArticle(id: string) {
     return this.APIService.delete(this.articleUrl + id,
       {
         token: this.localStorageService.getParameter('token')
@@ -57,7 +57,7 @@ export class ArticleService {
       .catch(() => null);
   }
 
-  addComment(articleId, message){
+  addComment(articleId, message) {
     return this.APIService.post(
       this.articleUrl + articleId + "/comments?token=" + this.localStorageService.getParameter('token'),
       {

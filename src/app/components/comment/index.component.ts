@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Response } from '@angular/http';
 import { ActivatedRoute, Params } from '@angular/router';
-import {Location} from '@angular/common';
+import { Location } from '@angular/common';
 
 import { CommentService } from '../../comment/comment.service';
-
 
 @Component({
   selector: 'comment',
@@ -18,9 +17,11 @@ export class CommentComponent implements OnInit{
   constructor (private commentService: CommentService, private activatedRoute: ActivatedRoute, private location: Location) {}
 
   ngOnInit(): void {
-    this.activatedRoute.params.subscribe((params: Params) => {
+    this.activatedRoute.params
+      .subscribe((params: Params) => {
       let articleId = params['articleId'];
       let commentId = params['commentId'];
+
       this.getCommentById(articleId, commentId);
     });
   }
@@ -33,7 +34,8 @@ export class CommentComponent implements OnInit{
   }
 
   deleteComment() {
-    this.activatedRoute.params.subscribe((params: Params) => {
+    this.activatedRoute.params
+      .subscribe((params: Params) => {
       let articleId = params['articleId'];
       let commentId = params['commentId'];
 
