@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Response } from '@angular/http';
 import { Router, ActivatedRoute, Params } from '@angular/router';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import { UserService } from '../../user/user.service';
 
@@ -13,8 +14,17 @@ import { UserService } from '../../user/user.service';
 export class EditUserComponent implements OnInit {
   data: Object;
   error: null;
+  editUserForm : FormGroup;
 
-  constructor(private userService: UserService, private  activatedRoute: ActivatedRoute, private router: Router) { }
+  constructor(fb: FormBuilder, private userService: UserService, private  activatedRoute: ActivatedRoute, private router: Router) {
+    let emailRegex = '^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$';
+
+    this.editUserForm = fb.group({
+      'firstname': [null, Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(15)])],
+      'lastname': [null, Validators.compose([Validators.required, Validators.minLength(5), Validators.maxLength(15)])],
+      'email': [null, Validators.compose([Validators.required, Validators.pattern(emailRegex)])]
+    })
+  }
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((params: Params) => {
