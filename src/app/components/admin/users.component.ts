@@ -22,7 +22,7 @@ export class UsersComponent implements OnInit {
     this.userService.getAllUsers()
       .subscribe((response: Response) => {
         this.data = response.json();
-      });
+    });
   }
 
   deleteUser(id) {

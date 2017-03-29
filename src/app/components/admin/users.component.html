@@ -10,14 +10,12 @@
         </div>
 
         <div class="media-body">
-          <h4 class="media-heading">{{ user.firstname + " " + user.lastname }}</h4>
+          <a [routerLink]="['profile', user._id]">
+            <h4 class="media-heading">{{ user.firstname + " " + user.lastname }}</h4>
+          </a>
+
           <div style="display: inline-block">
             <h5>email: {{ user.email }}</h5>
-          </div>
-
-          <div style="display: inline-block; margin-left: 100px;">rights:</div>
-          <div style="display: inline-block;" *ngFor="let right of user.rights">
-            {{ right + "; " }}
           </div>
 
           <button class="btn btn-danger pull-right" style="margin-left: 15px;" (click)="deleteUser(user._id)">
@@ -27,7 +25,6 @@
             <i class="fa fa-pencil" aria-hidden="true" style="margin-right: 7px;"></i>Edit user
           </button>
 
-          <p>registration date: {{ user.created_at | date:"dd-MM-yyyy" }}</p>
         </div>
 
       </div>

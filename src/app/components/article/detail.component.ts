@@ -20,7 +20,8 @@ export class ArticleDetailComponent implements OnInit {
     this.activatedRoute.params
       .subscribe((params: Params) => {
       let articleId = params['id'];
-      this.getArticleDetail(articleId);});
+      this.getArticleDetail(articleId);
+    });
   }
 
   getArticleDetail(id) {

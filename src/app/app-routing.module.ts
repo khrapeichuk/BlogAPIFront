@@ -17,6 +17,7 @@ import { EditCommentComponent } from './components/comment/edit.component';
 
 import { UsersComponent } from './components/admin/users.component';
 import { EditUserComponent } from './components/admin/edit-user.component';
+import { UserProfileComponent } from './components/admin/user-profile.component';
 
 import { AuthenticationGuard } from './guards/authentication.guard';
 import { AdminGuard } from './guards/admin.guard';
@@ -38,10 +39,11 @@ const routes: Routes = [
 
   { path: 'admin/users', component: UsersComponent, canActivate: [AdminGuard] },
   { path: 'admin/users/edit/:id', component: EditUserComponent, canActivate: [AdminGuard] },
+  { path: 'admin/users/profile/:id', component: UserProfileComponent, canActivate: [AdminGuard] },
 ];
 
 @NgModule({
-  imports: [ RouterModule.forRoot(routes) ],
-  exports: [ RouterModule ]
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
 })
 export class AppRoutingModule {}

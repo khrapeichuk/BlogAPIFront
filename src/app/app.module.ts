@@ -6,7 +6,7 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { LoginComponent } from './shared/authentication/login.component';
-import { LogoutComponent }   from './shared/authentication/logout.component';
+import { LogoutComponent } from './shared/authentication/logout.component';
 import { RegistrationComponent } from './shared/authentication/registration.component';
 import { ProfileComponent } from './components/profile/index.component';
 import { EditProfileComponent } from './components/profile/edit.component';
@@ -21,6 +21,7 @@ import { EditCommentComponent } from './components/comment/edit.component';
 
 import { UsersComponent } from './components/admin/users.component';
 import { EditUserComponent } from './components/admin/edit-user.component';
+import { UserProfileComponent } from './components/admin/user-profile.component';
 
 import { APIService } from './services/api.service';
 import { UserService } from './services/user.service';
@@ -52,6 +53,7 @@ import { RelativeTimePipe } from './pipes/relative-time.pipe';
 
     UsersComponent,
     EditUserComponent,
+    UserProfileComponent,
 
     RelativeTimePipe
   ],
