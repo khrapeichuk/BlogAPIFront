@@ -15,15 +15,20 @@
           </a>
 
           <div style="display: inline-block">
-            <h5>email: {{ user.email }}</h5>
+            <p>email: {{ user.email }}</p>
           </div>
 
-          <button class="btn btn-danger pull-right" style="margin-left: 15px;" (click)="deleteUser(user._id)">
-            <i class="fa fa-trash-o" aria-hidden="true" style="margin-right: 7px;"></i>Delete user
-          </button>
-          <button class="btn btn-info pull-right" [routerLink]="['edit', user._id]" routerLinkActive="active">
-            <i class="fa fa-pencil" aria-hidden="true" style="margin-right: 7px;"></i>Edit user
-          </button>
+          <div class="pull-right" style="display: inline-block">
+            <button class="btn btn-danger pull-right" style="margin-left: 15px;" (click)="deleteUser(user._id)">
+              <i class="fa fa-trash-o" aria-hidden="true" style="margin-right: 7px;"></i>Delete user
+            </button>
+
+            <button class="btn btn-info pull-right" [routerLink]="['edit', user._id]" routerLinkActive="active">
+              <i class="fa fa-pencil" aria-hidden="true" style="margin-right: 7px;"></i>Edit user
+            </button>
+          </div>
+
+          <p><i>On the site {{ user.created_at | yearsAndMonths }}</i></p>
 
         </div>
 

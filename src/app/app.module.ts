@@ -33,6 +33,7 @@ import { AuthenticationGuard } from './guards/authentication.guard';
 import { AdminGuard } from './guards/admin.guard';
 
 import { RelativeTimePipe } from './pipes/relative-time.pipe';
+import { YearsAndMonthsPipe } from './pipes/years-and-months.pipe';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { RelativeTimePipe } from './pipes/relative-time.pipe';
     EditUserComponent,
     UserProfileComponent,
 
-    RelativeTimePipe
+    RelativeTimePipe,
+    YearsAndMonthsPipe
   ],
   imports: [
     BrowserModule,
