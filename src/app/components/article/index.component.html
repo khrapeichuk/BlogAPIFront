@@ -25,7 +25,7 @@
         <p style="margin-top: 12px;">{{ article.body | slice: 0: 990 }} {{ "..." }}</p>
       </div>
 
-      <div class="pull-right" *ngIf="article.author._id == getCurrentUserID()">
+      <div class="pull-right" *ngIf="isArticleAuthor(article.author._id)">
         <button class="btn btn-danger pull-right" style="margin-left: 15px;" (click)="deleteArticle(article._id)">
           <i class="fa fa-trash-o" aria-hidden="true" style="margin-right: 7px;"></i>Delete article
         </button>

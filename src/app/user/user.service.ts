@@ -85,9 +85,6 @@ export class UserService {
     if (this.localStorageService.getObject('currentUser')) {
       return true;
     }
-    else {
-      return false;
-    }
   }
 
   isAdmin() {
@@ -97,9 +94,12 @@ export class UserService {
       if(rights.indexOf("ADMIN") != -1) {
         return true;
       }
-      else {
-        return false;
-      }
+    }
+  }
+
+  isArticleOrCommentAuthor(authorID) {
+    if(this.getCurrentUserID() == authorID) {
+      return true;
     }
   }
 }

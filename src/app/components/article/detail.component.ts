@@ -36,7 +36,7 @@ export class ArticleDetailComponent implements OnInit {
     location.reload();
   }
 
-  getCurrentUserID() {
-    return this.userService.getCurrentUserID();
+  isCommentAuthor(id) {
+    return this.userService.isArticleOrCommentAuthor(id);
   }
 }

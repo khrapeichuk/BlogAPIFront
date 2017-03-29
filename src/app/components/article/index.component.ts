@@ -32,11 +32,11 @@ export class ArticlesComponent implements OnInit {
     location.reload();
   }
 
-  getCurrentUserID() {
-    return this.userService.getCurrentUserID();
-  }
-
   isAuthorized() {
     return this.userService.isAuthorized();
+  }
+
+  isArticleAuthor(id) {
+    return this.userService.isArticleOrCommentAuthor(id);
   }
 }
