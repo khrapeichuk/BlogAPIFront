@@ -60,7 +60,7 @@ export class UserService {
         firstname: firstname.value,
         lastname: lastname.value,
         email: email.value,
-        rights: rights.value.split(',')
+        rights: rights.split(',')
       }
     );
   }

@@ -41,14 +41,17 @@ export class EditUserComponent implements OnInit {
       });
   }
 
-  editUser(firstname: HTMLInputElement, lastname: HTMLInputElement, email: HTMLInputElement, rights: HTMLInputElement) {
+  editUser(firstname: HTMLInputElement, lastname: HTMLInputElement, email: HTMLInputElement, userRight: HTMLInputElement, adminRight: HTMLInputElement) {
     this.error = null;
 
     this.activatedRoute.params
       .subscribe((params: Params) => {
       let id = params['id'];
 
-    this.userService.editProfile(id, firstname, lastname, email, rights)
+      let userRights = userRight.checked ? userRight.value : '';
+      let adminRights = adminRight.checked ? adminRight.value : '';
+
+    this.userService.editProfile(id, firstname, lastname, email, userRights + ',' + adminRights)
       .subscribe((response: Response) => {
           this.data = response.json();
 

@@ -51,16 +51,21 @@
     </div>
   </div>
 
-  <div class="form-group">
-    <label for="rights" class="col-sm-2 col-sm-offset-2 control-label">Rights</label>
+  <label class="col-sm-2 col-sm-offset-2 control-label">Rights</label>
+  <label class="checkbox-inline">
     <div class="col-sm-4">
-      <input type="text" class="form-control" id="rights" value="{{ data?.rights }}" #rights>
+      <input type="checkbox" id="user" value="USER" checked="{{ data?.rights.indexOf('USER') != -1 ? 'checked' : '' }}" #userRight> USER
     </div>
-  </div>
+  </label>
+  <label class="checkbox-inline">
+    <div class="col-sm-4">
+      <input type="checkbox" id="admin" value="ADMIN" checked="{{ data?.rights.indexOf('ADMIN') != -1 ? 'checked' : '' }}" #adminRight> ADMIN
+    </div>
+  </label>
 
-  <div class="form-group">
+  <div class="form-group" style="margin-top: 20px;">
     <div class="col-sm-offset-4 col-sm-8">
-      <button type="submit" class="btn btn-success"(click)="editUser(firstname, lastname, email, rights)">
+      <button type="submit" class="btn btn-success"(click)="editUser(firstname, lastname, email, userRight, adminRight)">
         <i class="fa fa-check" aria-hidden="true" style="margin-right: 7px;"></i>Save
       </button>
     </div>
