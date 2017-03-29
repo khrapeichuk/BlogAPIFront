@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 
 import 'rxjs/add/operator/toPromise';
 
-import { APIService } from "./api.service";
-import { LocalStorageService } from "../local-storage.service";
+import { APIService } from './api.service';
+import { LocalStorageService } from './local-storage.service';
 
 @Injectable()
 export class ArticleService {
@@ -23,7 +23,7 @@ export class ArticleService {
 
   createArticle(title, body, category, image) {
     return this.APIService.post(
-      this.articleUrl + "?token=" + this.localStorageService.getParameter('token'),
+      this.articleUrl + '?token=' + this.localStorageService.getParameter('token'),
       {
         title: title.value,
         body: body.value,
@@ -59,7 +59,7 @@ export class ArticleService {
 
   addComment(articleId, message) {
     return this.APIService.post(
-      this.articleUrl + articleId + "/comments?token=" + this.localStorageService.getParameter('token'),
+      this.articleUrl + articleId + '/comments?token=' + this.localStorageService.getParameter('token'),
       {
         message: message.value,
       }

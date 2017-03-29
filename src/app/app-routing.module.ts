@@ -1,8 +1,8 @@
-import { NgModule }             from '@angular/core';
+import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { LoginComponent }   from './shared/authentication/login.component';
-import { LogoutComponent }   from './shared/authentication/logout.component';
+import { LoginComponent } from './shared/authentication/login.component';
+import { LogoutComponent } from './shared/authentication/logout.component';
 import { RegistrationComponent } from './shared/authentication/registration.component';
 import { ProfileComponent } from './components/profile/index.component';
 import { EditProfileComponent } from './components/profile/edit.component';

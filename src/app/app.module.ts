@@ -22,10 +22,10 @@ import { EditCommentComponent } from './components/comment/edit.component';
 import { UsersComponent } from './components/admin/users.component';
 import { EditUserComponent } from './components/admin/edit-user.component';
 
-import { APIService } from "./services/api.service";
+import { APIService } from './services/api.service';
 import { UserService } from './services/user.service';
 import { ArticleService } from './services/article.service';
-import { LocalStorageService } from './local-storage.service';
+import { LocalStorageService } from './services/local-storage.service';
 import { CommentService } from './services/comment.service';
 
 import { AuthenticationGuard } from './guards/authentication.guard';
@@ -75,4 +75,4 @@ import { RelativeTimePipe } from './pipes/relative-time.pipe';
   bootstrap: [AppComponent]
 })
 
-export class AppModule { }
+export class AppModule {}

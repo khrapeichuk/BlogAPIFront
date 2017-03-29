@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { APIService } from "./api.service";
+import { APIService } from './api.service';
 
 import 'rxjs/add/operator/toPromise';
-import {LocalStorageService} from "../local-storage.service";
+import {LocalStorageService} from './local-storage.service';
 
 @Injectable()
 export class UserService {
@@ -65,7 +65,7 @@ export class UserService {
     );
   }
 
-  deleteUser(id: string){
+  deleteUser(id: string) {
     return this.APIService.delete(this.userUrl + id,
       {
         token: this.localStorageService.getParameter('token')
@@ -76,7 +76,7 @@ export class UserService {
   }
 
   getCurrentUserID() {
-    if(this.isAuthorized()) {
+    if (this.isAuthorized()) {
       return this.localStorageService.getParameter('id');
     }
   }
@@ -88,17 +88,17 @@ export class UserService {
   }
 
   isAdmin() {
-    if(this.isAuthorized()){
+    if (this.isAuthorized()) {
       let rights = this.localStorageService.getParameter('rights');
 
-      if(rights.indexOf("ADMIN") != -1) {
+      if (rights.indexOf('ADMIN') !== -1) {
         return true;
       }
     }
   }
 
   isArticleOrCommentAuthor(authorID) {
-    if(this.getCurrentUserID() == authorID) {
+    if (this.getCurrentUserID() === authorID) {
       return true;
     }
   }

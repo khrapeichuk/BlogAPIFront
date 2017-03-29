@@ -6,7 +6,7 @@ import { ArticleService } from '../../services/article.service';
 import { UserService } from '../../services/user.service';
 
 @Component({
-  selector: 'article-detail',
+  selector: 'app-article-detail',
   templateUrl: 'detail.component.html',
   styleUrls: ['../../app.component.css']
 })

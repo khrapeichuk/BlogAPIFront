@@ -6,7 +6,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ArticleService } from '../../services/article.service';
 
 @Component({
-  selector: 'edit-article',
+  selector: 'app-edit-article',
   templateUrl: 'edit.component.html',
   styleUrls: ['../../app.component.css']
 })
@@ -14,12 +14,12 @@ import { ArticleService } from '../../services/article.service';
 export class EditArticleComponent implements OnInit {
   data: Object;
   error: null;
-  editArticleForm : FormGroup;
+  editArticleForm: FormGroup;
 
   constructor(fb: FormBuilder, private articleService: ArticleService, private  activatedRoute: ActivatedRoute, private router: Router) {
     this.editArticleForm = fb.group({
       'title' : [null, Validators.required]
-    })
+    });
   }
 
   ngOnInit(): void {

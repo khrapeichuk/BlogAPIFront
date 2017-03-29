@@ -18,7 +18,7 @@ export class APIService {
       {
         headers: this.headers
       }
-    )
+    );
   }
 
   post(UrlPart, data) {
@@ -55,12 +55,12 @@ export class APIService {
   }
 
   convertObjectToUrlParameters(object) {
-    let UrlParameters = "";
-    for(let key in object) {
-      if(UrlParameters != "") {
-        UrlParameters += "&";
+    let UrlParameters = '';
+    for (let key in object) {
+      if (UrlParameters !== '') {
+        UrlParameters += '&';
       }
-      UrlParameters += key + "=" + encodeURIComponent(object[key]);
+      UrlParameters += key + '=' + encodeURIComponent(object[key]);
     }
     return UrlParameters;
   }

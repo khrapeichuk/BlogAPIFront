@@ -4,7 +4,7 @@ import { Response } from '@angular/http';
 import { UserService } from '../../services/user.service';
 
 @Component({
-  selector: 'users',
+  selector: 'app-users',
   templateUrl: 'users.component.html',
   styleUrls: ['../../app.component.css']
 })

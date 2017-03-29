@@ -5,12 +5,12 @@ import { ActivatedRoute, Router, Params } from '@angular/router';
 import { CommentService } from '../../services/comment.service';
 
 @Component({
-  selector: 'edit-comment',
+  selector: 'app-edit-comment',
   templateUrl: 'edit.component.html',
   styleUrls: ['../../app.component.css']
 })
 
-export class EditCommentComponent implements OnInit{
+export class EditCommentComponent implements OnInit {
   data: Object;
 
   constructor (private commentService: CommentService, private activatedRoute: ActivatedRoute, private  router: Router) {}

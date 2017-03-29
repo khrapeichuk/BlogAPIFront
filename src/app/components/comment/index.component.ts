@@ -6,12 +6,12 @@ import { Location } from '@angular/common';
 import { CommentService } from '../../services/comment.service';
 
 @Component({
-  selector: 'comment',
+  selector: 'app-comment',
   templateUrl: 'index.component.html',
   styleUrls: ['../../app.component.css']
 })
 
-export class CommentComponent implements OnInit{
+export class CommentComponent implements OnInit {
   data: Object;
 
   constructor (private commentService: CommentService, private activatedRoute: ActivatedRoute, private location: Location) {}

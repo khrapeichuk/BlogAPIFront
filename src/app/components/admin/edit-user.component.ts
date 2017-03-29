@@ -6,7 +6,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { UserService } from '../../services/user.service';
 
 @Component({
-  selector: 'edit-user',
+  selector: 'app-edit-user',
   templateUrl: 'edit-user.component.html',
   styleUrls: ['../../app.component.css']
 })
@@ -14,16 +14,16 @@ import { UserService } from '../../services/user.service';
 export class EditUserComponent implements OnInit {
   data: Object;
   error: null;
-  editUserForm : FormGroup;
+  editUserForm: FormGroup;
 
   constructor(fb: FormBuilder, private userService: UserService, private  activatedRoute: ActivatedRoute, private router: Router) {
-    let emailRegex = '^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$';
+    const emailRegex = '^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$';
 
     this.editUserForm = fb.group({
       'firstname': [null, Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(15)])],
       'lastname': [null, Validators.compose([Validators.required, Validators.minLength(5), Validators.maxLength(15)])],
       'email': [null, Validators.compose([Validators.required, Validators.pattern(emailRegex)])]
-    })
+    });
   }
 
   ngOnInit(): void {

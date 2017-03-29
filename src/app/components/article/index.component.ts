@@ -5,7 +5,7 @@ import { ArticleService } from '../../services/article.service';
 import { UserService } from '../../services/user.service';
 
 @Component({
-  selector: 'articles',
+  selector: 'app-articles',
   templateUrl: 'index.component.html',
   styleUrls: ['../../app.component.css']
 })
@@ -23,7 +23,7 @@ export class ArticlesComponent implements OnInit {
     this.articleService.getArticles()
       .subscribe((response: Response) => {
         this.data = response.json();
-      });
+    });
   }
 
   deleteArticle(id) {

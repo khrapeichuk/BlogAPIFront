@@ -20,8 +20,7 @@ export class Article {
               author: Author[],
               created_at: string,
               updated_at: string,
-              comments: Comment[])
-  {
+              comments: Comment[]) {
     this._id = _id;
     this.title = title;
     this.category = category;

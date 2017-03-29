@@ -6,7 +6,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ArticleService } from '../../services/article.service';
 
 @Component({
-  selector: 'create-article',
+  selector: 'app-create-article',
   templateUrl: 'create.component.html',
   styleUrls: ['../../app.component.css']
 })
@@ -14,12 +14,12 @@ import { ArticleService } from '../../services/article.service';
 export class CreateArticleComponent {
   data: Object;
   error: null;
-  createArticleForm : FormGroup;
+  createArticleForm: FormGroup;
 
   constructor(fb: FormBuilder, private articleService: ArticleService, private router: Router) {
     this.createArticleForm = fb.group({
       'title' : [null, Validators.required]
-    })
+    });
   }
 
   createArticle(title: HTMLInputElement, body: HTMLInputElement, category: HTMLInputElement, image: HTMLInputElement) {

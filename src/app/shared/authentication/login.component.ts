@@ -3,14 +3,14 @@ import { Response } from '@angular/http';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
-import { User } from "../../models/user.model";
+import { User } from '../../models/user.model';
 
 import { UserService } from '../../services/user.service';
-import { LocalStorageService } from "../../local-storage.service";
+import { LocalStorageService } from '../../services/local-storage.service';
 
 
 @Component({
-  selector: 'login',
+  selector: 'app-login',
   templateUrl: 'login.component.html',
   styleUrls: ['../../app.component.css']
 })
@@ -20,15 +20,15 @@ export class LoginComponent {
   currentUser: User;
   user: User;
   error: null;
-  loginForm : FormGroup;
+  loginForm: FormGroup;
 
   constructor(fb: FormBuilder, private userService: UserService, private localStorageService: LocalStorageService, private router: Router) {
-    let emailRegex = '^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$';
+    const emailRegex = '^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$';
 
     this.loginForm = fb.group({
       'email' : [null, Validators.compose([Validators.required, Validators.pattern(emailRegex)])],
       'password': [null, Validators.required],
-    })
+    });
   }
 
   login(email: HTMLInputElement, password: HTMLInputElement) {

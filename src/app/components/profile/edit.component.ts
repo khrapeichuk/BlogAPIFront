@@ -4,10 +4,10 @@ import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import { UserService } from '../../services/user.service';
-import { LocalStorageService } from "../../local-storage.service";
+import { LocalStorageService } from '../../services/local-storage.service';
 
 @Component({
-  selector: 'edit-profile',
+  selector: 'app-edit-profile',
   templateUrl: 'edit.component.html',
   styleUrls: ['../../app.component.css']
 })
@@ -15,16 +15,16 @@ import { LocalStorageService } from "../../local-storage.service";
 export class EditProfileComponent implements OnInit {
   data: Object;
   error: null;
-  editProfileForm : FormGroup;
+  editProfileForm: FormGroup;
 
   constructor(fb: FormBuilder, private userService: UserService, private  localStorageService: LocalStorageService, private router: Router) {
-    let emailRegex = '^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$';
+    const emailRegex = '^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$';
 
     this.editProfileForm = fb.group({
       'firstname': ['', Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(15)])],
       'lastname': ['', Validators.compose([Validators.required, Validators.minLength(5), Validators.maxLength(15)])],
       'email': ['', Validators.compose([Validators.required, Validators.pattern(emailRegex)])]
-    })
+    });
   }
 
   ngOnInit(): void {
@@ -38,7 +38,7 @@ export class EditProfileComponent implements OnInit {
       });
   }
 
-  editProfile(firstname: HTMLInputElement, lastname: HTMLInputElement, email: HTMLInputElement, rights:HTMLInputElement) {
+  editProfile(firstname: HTMLInputElement, lastname: HTMLInputElement, email: HTMLInputElement, rights: HTMLInputElement) {
     this.error = null;
     let id = this.localStorageService.getParameter('id');
 
