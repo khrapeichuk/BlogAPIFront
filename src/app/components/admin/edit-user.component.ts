@@ -3,7 +3,7 @@ import { Response } from '@angular/http';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
-import { UserService } from '../../user/user.service';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'edit-user',

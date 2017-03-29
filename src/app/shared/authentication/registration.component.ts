@@ -3,9 +3,9 @@ import { Response } from '@angular/http';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
-import { User } from "../../user/user.model";
+import { User } from "../../models/user.model";
 
-import { UserService } from '../../user/user.service';
+import { UserService } from '../../services/user.service';
 import { LocalStorageService } from "../../local-storage.service";
 
 @Component({

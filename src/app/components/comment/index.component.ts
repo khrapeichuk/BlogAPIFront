@@ -3,7 +3,7 @@ import { Response } from '@angular/http';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
 
-import { CommentService } from '../../comment/comment.service';
+import { CommentService } from '../../services/comment.service';
 
 @Component({
   selector: 'comment',

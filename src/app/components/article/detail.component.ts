@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Response } from '@angular/http';
 import { ActivatedRoute, Params } from '@angular/router';
 
-import { ArticleService } from '../../article/article.service';
-import { UserService } from '../../user/user.service';
+import { ArticleService } from '../../services/article.service';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'article-detail',

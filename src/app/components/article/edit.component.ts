@@ -3,7 +3,7 @@ import { Response } from '@angular/http';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
-import { ArticleService } from '../../article/article.service';
+import { ArticleService } from '../../services/article.service';
 
 @Component({
   selector: 'edit-article',

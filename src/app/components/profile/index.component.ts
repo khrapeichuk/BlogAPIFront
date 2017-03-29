@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Response } from '@angular/http';
 
-import { UserService } from '../../user/user.service';
+import { UserService } from '../../services/user.service';
 import { LocalStorageService } from "../../local-storage.service";
 
 @Component({

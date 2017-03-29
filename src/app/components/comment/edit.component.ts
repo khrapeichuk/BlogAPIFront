@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Response } from '@angular/http';
 import { ActivatedRoute, Router, Params } from '@angular/router';
 
-import { CommentService } from '../../comment/comment.service';
+import { CommentService } from '../../services/comment.service';
 
 @Component({
   selector: 'edit-comment',

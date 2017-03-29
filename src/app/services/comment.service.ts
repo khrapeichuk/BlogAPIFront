@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 import 'rxjs/add/operator/toPromise';
 
-import { APIService } from "../api/api.service";
+import { APIService } from "./api.service";
 import { LocalStorageService } from "../local-storage.service";
 
 @Injectable()
