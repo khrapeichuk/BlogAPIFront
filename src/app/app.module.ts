@@ -6,9 +6,9 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { EditProfileComponent } from './components/profile/edit.component';
-import { LoginComponent } from './shared/authentication/login.component';
-import { LogoutComponent } from './shared/authentication/logout.component';
-import { RegistrationComponent } from './shared/authentication/registration.component';
+import { LoginComponent } from './components/authentication/login.component';
+import { LogoutComponent } from './components/authentication/logout.component';
+import { RegistrationComponent } from './components/authentication/registration.component';
 import { ProfileComponent } from './components/profile/index.component';
 
 import { ArticlesComponent } from './components/article/index.component';

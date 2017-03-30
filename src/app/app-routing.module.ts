@@ -2,10 +2,10 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { EditProfileComponent } from './components/profile/edit.component';
-import { LoginComponent } from './shared/authentication/login.component';
-import { LogoutComponent } from './shared/authentication/logout.component';
+import { LoginComponent } from './components/authentication/login.component';
+import { LogoutComponent } from './components/authentication/logout.component';
 import { ProfileComponent } from './components/profile/index.component';
-import { RegistrationComponent } from './shared/authentication/registration.component';
+import { RegistrationComponent } from './components/authentication/registration.component';
 
 import { ArticleDetailComponent } from './components/article/detail.component';
 import { ArticlesComponent } from './components/article/index.component';
