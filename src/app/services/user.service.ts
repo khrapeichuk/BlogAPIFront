@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import { APIService } from './api.service';
 
 import 'rxjs/add/operator/toPromise';
-import {LocalStorageService} from './local-storage.service';
+
+import { APIService } from './api.service';
+import { LocalStorageService } from './local-storage.service';
 
 @Injectable()
 export class UserService {

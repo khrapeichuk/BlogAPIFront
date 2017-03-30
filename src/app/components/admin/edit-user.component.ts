@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Response } from '@angular/http';
 import { Router, ActivatedRoute, Params } from '@angular/router';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import { UserService } from '../../services/user.service';
 
 @Component({
-  selector: 'admin-edit-user',
+  selector: 'app-admin-edit-user',
   templateUrl: 'edit-user.component.html',
   styleUrls: ['../../app.component.css']
 })

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Response } from '@angular/http';
 
-import { UserService } from '../../services/user.service';
 import { LocalStorageService } from '../../services/local-storage.service';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-profile',

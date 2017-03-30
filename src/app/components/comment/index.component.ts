@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { Response } from '@angular/http';
 import { ActivatedRoute, Params } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
+import { Response } from '@angular/http';
 
 import { CommentService } from '../../services/comment.service';
 

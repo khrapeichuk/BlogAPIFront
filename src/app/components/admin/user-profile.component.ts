@@ -1,11 +1,11 @@
+import { ActivatedRoute, Params } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { Response } from '@angular/http';
-import { ActivatedRoute, Params } from '@angular/router';
 
 import { UserService } from '../../services/user.service';
 
 @Component({
-  selector: 'admin-user-profile',
+  selector: 'app-admin-user-profile',
   templateUrl: 'user-profile.component.html',
   styleUrls: ['../../app.component.css']
 })

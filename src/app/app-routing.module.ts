@@ -1,26 +1,26 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
+import { EditProfileComponent } from './components/profile/edit.component';
 import { LoginComponent } from './shared/authentication/login.component';
 import { LogoutComponent } from './shared/authentication/logout.component';
-import { RegistrationComponent } from './shared/authentication/registration.component';
 import { ProfileComponent } from './components/profile/index.component';
-import { EditProfileComponent } from './components/profile/edit.component';
+import { RegistrationComponent } from './shared/authentication/registration.component';
 
-import { ArticlesComponent } from './components/article/index.component';
 import { ArticleDetailComponent } from './components/article/detail.component';
+import { ArticlesComponent } from './components/article/index.component';
 import { CreateArticleComponent } from './components/article/create.component';
 import { EditArticleComponent } from './components/article/edit.component';
 
 import { CommentComponent } from './components/comment/index.component';
 import { EditCommentComponent } from './components/comment/edit.component';
 
-import { UsersComponent } from './components/admin/users.component';
 import { EditUserComponent } from './components/admin/edit-user.component';
 import { UserProfileComponent } from './components/admin/user-profile.component';
+import { UsersComponent } from './components/admin/users.component';
 
-import { AuthenticationGuard } from './guards/authentication.guard';
 import { AdminGuard } from './guards/admin.guard';
+import { AuthenticationGuard } from './guards/authentication.guard';
 
 const routes: Routes = [
   { path: 'login',  component: LoginComponent },
@@ -46,4 +46,5 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
+
 export class AppRoutingModule {}

@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Response } from '@angular/http';
 import { Router } from '@angular/router';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import { User } from '../../models/user.model';
 
-import { UserService } from '../../services/user.service';
 import { LocalStorageService } from '../../services/local-storage.service';
+import { UserService } from '../../services/user.service';
 
 
 @Component({

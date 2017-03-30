@@ -1,15 +1,15 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { EditProfileComponent } from './components/profile/edit.component';
 import { LoginComponent } from './shared/authentication/login.component';
 import { LogoutComponent } from './shared/authentication/logout.component';
 import { RegistrationComponent } from './shared/authentication/registration.component';
 import { ProfileComponent } from './components/profile/index.component';
-import { EditProfileComponent } from './components/profile/edit.component';
 
 import { ArticlesComponent } from './components/article/index.component';
 import { ArticleDetailComponent } from './components/article/detail.component';
@@ -19,18 +19,18 @@ import { EditArticleComponent } from './components/article/edit.component';
 import { CommentComponent } from './components/comment/index.component';
 import { EditCommentComponent } from './components/comment/edit.component';
 
-import { UsersComponent } from './components/admin/users.component';
 import { EditUserComponent } from './components/admin/edit-user.component';
 import { UserProfileComponent } from './components/admin/user-profile.component';
+import { UsersComponent } from './components/admin/users.component';
 
 import { APIService } from './services/api.service';
-import { UserService } from './services/user.service';
 import { ArticleService } from './services/article.service';
-import { LocalStorageService } from './services/local-storage.service';
 import { CommentService } from './services/comment.service';
+import { LocalStorageService } from './services/local-storage.service';
+import { UserService } from './services/user.service';
 
-import { AuthenticationGuard } from './guards/authentication.guard';
 import { AdminGuard } from './guards/admin.guard';
+import { AuthenticationGuard } from './guards/authentication.guard';
 
 import { RelativeTimePipe } from './pipes/relative-time.pipe';
 import { YearsAndMonthsPipe } from './pipes/years-and-months.pipe';
@@ -38,11 +38,11 @@ import { YearsAndMonthsPipe } from './pipes/years-and-months.pipe';
 @NgModule({
   declarations: [
     AppComponent,
+    EditProfileComponent,
     LoginComponent,
     LogoutComponent,
     RegistrationComponent,
     ProfileComponent,
-    EditProfileComponent,
 
     ArticlesComponent,
     ArticleDetailComponent,
@@ -52,29 +52,29 @@ import { YearsAndMonthsPipe } from './pipes/years-and-months.pipe';
     CommentComponent,
     EditCommentComponent,
 
-    UsersComponent,
     EditUserComponent,
     UserProfileComponent,
+    UsersComponent,
 
     RelativeTimePipe,
     YearsAndMonthsPipe
   ],
   imports: [
+    AppRoutingModule,
     BrowserModule,
     FormsModule,
-    ReactiveFormsModule,
     HttpModule,
-    AppRoutingModule
+    ReactiveFormsModule
   ],
   providers: [
     APIService,
-    UserService,
     ArticleService,
-    LocalStorageService,
     CommentService,
+    LocalStorageService,
+    UserService,
 
-    AuthenticationGuard,
-    AdminGuard
+    AdminGuard,
+    AuthenticationGuard
   ],
   bootstrap: [AppComponent]
 })
