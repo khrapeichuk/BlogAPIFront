@@ -29,9 +29,8 @@ export class EditUserComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.params
       .subscribe((params: Params) => {
-      let userId = params['id'];
-      this.getUserData(userId);
-    });
+        this.getUserData(params['id']);
+      });
   }
 
   getUserData(id) {
@@ -46,12 +45,10 @@ export class EditUserComponent implements OnInit {
 
     this.activatedRoute.params
       .subscribe((params: Params) => {
-      let id = params['id'];
-
       let userRights = userRight.checked ? userRight.value : '';
       let adminRights = adminRight.checked ? adminRight.value : '';
 
-    this.userService.editProfile(id, firstname, lastname, email, userRights + ',' + adminRights)
+    this.userService.editProfile(params['id'], firstname, lastname, email, userRights + ',' + adminRights)
       .subscribe((response: Response) => {
           this.data = response.json();
 

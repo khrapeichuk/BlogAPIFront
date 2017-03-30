@@ -40,9 +40,8 @@ export class EditProfileComponent implements OnInit {
 
   editProfile(firstname: HTMLInputElement, lastname: HTMLInputElement, email: HTMLInputElement, rights: HTMLInputElement) {
     this.error = null;
-    let id = this.localStorageService.getParameter('id');
 
-    this.userService.editProfile(id, firstname, lastname, email, rights.value)
+    this.userService.editProfile(this.localStorageService.getParameter('id'), firstname, lastname, email, rights.value)
       .subscribe((response: Response) => {
           this.data = response.json();
 

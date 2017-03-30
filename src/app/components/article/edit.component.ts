@@ -25,9 +25,8 @@ export class EditArticleComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.params
       .subscribe((params: Params) => {
-      let articleId = params['id'];
-      this.getArticleData(articleId);
-    });
+        this.getArticleData(params['id']);
+      });
   }
 
   getArticleData(id) {

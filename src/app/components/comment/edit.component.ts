@@ -18,10 +18,8 @@ export class EditCommentComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.params
       .subscribe((params: Params) => {
-      let articleId = params['articleId'];
-      let commentId = params['commentId'];
-      this.getCommentById(articleId, commentId);
-    });
+        this.getCommentById(params['articleId'], params['commentId']);
+      });
   }
 
   getCommentById(articleId, commentId) {
@@ -34,15 +32,12 @@ export class EditCommentComponent implements OnInit {
   editComment(message) {
     this.activatedRoute.params
       .subscribe((params: Params) => {
-      let articleId = params['articleId'];
-      let commentId = params['commentId'];
+        this.commentService.editComment(params['articleId'], params['commentId'], message)
+          .subscribe((response: Response) => {
+            this.data = response.json();
+          });
 
-      this.commentService.editComment(articleId, commentId, message)
-        .subscribe((response: Response) => {
-          this.data = response.json();
-      });
-
-      this.router.navigate(['articles', articleId]);
+      this.router.navigate(['articles', params['articleId']]);
     });
   }
 }

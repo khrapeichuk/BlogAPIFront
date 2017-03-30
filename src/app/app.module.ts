@@ -31,6 +31,7 @@ import { CommentService } from './services/comment.service';
 
 import { AuthenticationGuard } from './guards/authentication.guard';
 import { AdminGuard } from './guards/admin.guard';
+import { ArticleAuthorGuard } from './guards/article-author.guard';
 
 import { RelativeTimePipe } from './pipes/relative-time.pipe';
 import { YearsAndMonthsPipe } from './pipes/years-and-months.pipe';
@@ -74,7 +75,8 @@ import { YearsAndMonthsPipe } from './pipes/years-and-months.pipe';
     CommentService,
 
     AuthenticationGuard,
-    AdminGuard
+    AdminGuard,
+    ArticleAuthorGuard
   ],
   bootstrap: [AppComponent]
 })

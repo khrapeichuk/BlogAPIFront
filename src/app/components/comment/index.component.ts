@@ -19,11 +19,8 @@ export class CommentComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.params
       .subscribe((params: Params) => {
-      let articleId = params['articleId'];
-      let commentId = params['commentId'];
-
-      this.getCommentById(articleId, commentId);
-    });
+        this.getCommentById(params['articleId'], params['commentId']);
+      });
   }
 
   getCommentById(articleId, commentId) {
@@ -36,13 +33,10 @@ export class CommentComponent implements OnInit {
   deleteComment() {
     this.activatedRoute.params
       .subscribe((params: Params) => {
-      let articleId = params['articleId'];
-      let commentId = params['commentId'];
+        this.commentService.deleteComment(params['articleId'], params['commentId']);
 
-      this.commentService.deleteComment(articleId, commentId);
-
-      this.location.back();
-    });
+        this.location.back();
+      });
   }
 
   back() {

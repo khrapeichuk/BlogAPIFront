@@ -21,6 +21,7 @@ import { UserProfileComponent } from './components/admin/user-profile.component'
 
 import { AuthenticationGuard } from './guards/authentication.guard';
 import { AdminGuard } from './guards/admin.guard';
+import { ArticleAuthorGuard } from './guards/article-author.guard';
 
 const routes: Routes = [
   { path: 'login',  component: LoginComponent },
@@ -32,7 +33,7 @@ const routes: Routes = [
   { path: 'articles', component: ArticlesComponent },
   { path: 'articles/:id', component: ArticleDetailComponent, canActivate: [AuthenticationGuard] },
   { path: 'create-article', component: CreateArticleComponent, canActivate: [AuthenticationGuard] },
-  { path: 'edit-article/:id', component: EditArticleComponent, canActivate: [AuthenticationGuard] },
+  { path: 'edit-article/:id', component: EditArticleComponent, canActivate: [AuthenticationGuard, ArticleAuthorGuard] },
 
   { path: 'articles/:articleId/comment/:commentId', component: CommentComponent, canActivate: [AuthenticationGuard] },
   { path: 'articles/:articleId/comment/:commentId/edit', component: EditCommentComponent, canActivate: [AuthenticationGuard] },

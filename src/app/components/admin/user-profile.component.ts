@@ -18,9 +18,8 @@ export class UserProfileComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.params
       .subscribe((params: Params) => {
-        let userId = params['id'];
-        this.getUserDetail(userId);
-    });
+        this.getUserDetail(params['id']);
+      });
   }
 
   getUserDetail(id) {
