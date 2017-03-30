@@ -10,7 +10,7 @@ import { LocalStorageService } from '../../services/local-storage.service';
 
 @Component({
   selector: 'app-registration',
-  templateUrl: 'registration.component.html',
+  templateUrl: './registration.component.html',
   styleUrls: ['../../app.component.css']
 })
 

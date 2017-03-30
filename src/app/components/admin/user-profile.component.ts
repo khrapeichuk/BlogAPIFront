@@ -6,7 +6,7 @@ import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-admin-user-profile',
-  templateUrl: 'user-profile.component.html',
+  templateUrl: './user-profile.component.html',
   styleUrls: ['../../app.component.css']
 })
 

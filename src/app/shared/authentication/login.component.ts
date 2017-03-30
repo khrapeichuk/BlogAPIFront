@@ -11,7 +11,7 @@ import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-login',
-  templateUrl: 'login.component.html',
+  templateUrl: './login.component.html',
   styleUrls: ['../../app.component.css']
 })
 

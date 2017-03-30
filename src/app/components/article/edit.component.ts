@@ -7,7 +7,7 @@ import { ArticleService } from '../../services/article.service';
 
 @Component({
   selector: 'app-edit-article',
-  templateUrl: 'edit.component.html',
+  templateUrl: './edit.component.html',
   styleUrls: ['../../app.component.css']
 })
 

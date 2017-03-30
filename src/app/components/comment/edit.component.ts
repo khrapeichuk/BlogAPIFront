@@ -6,7 +6,7 @@ import { CommentService } from '../../services/comment.service';
 
 @Component({
   selector: 'app-edit-comment',
-  templateUrl: 'edit.component.html',
+  templateUrl: './edit.component.html',
   styleUrls: ['../../app.component.css']
 })
 

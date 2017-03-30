@@ -7,7 +7,7 @@ import { CommentService } from '../../services/comment.service';
 
 @Component({
   selector: 'app-comment',
-  templateUrl: 'index.component.html',
+  templateUrl: './index.component.html',
   styleUrls: ['../../app.component.css']
 })
 

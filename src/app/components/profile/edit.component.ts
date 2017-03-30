@@ -8,7 +8,7 @@ import { LocalStorageService } from '../../services/local-storage.service';
 
 @Component({
   selector: 'app-edit-profile',
-  templateUrl: 'edit.component.html',
+  templateUrl: './edit.component.html',
   styleUrls: ['../../app.component.css']
 })
 
