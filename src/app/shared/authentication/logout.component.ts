@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   styleUrls: ['../../app.component.css']
 })
 
-export class LogoutComponent implements OnInit{
+export class LogoutComponent implements OnInit {
 
   constructor(private router: Router) {}
 

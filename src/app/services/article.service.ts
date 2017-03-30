@@ -12,9 +12,7 @@ export class ArticleService {
   constructor(private localStorageService: LocalStorageService, private APIService: APIService) {}
 
   getArticles() {
-    return this.APIService.get(
-      this.articleUrl, {}
-    );
+    return this.APIService.get(this.articleUrl, {});
   }
 
   getArticleById(id: string) {
@@ -32,6 +30,7 @@ export class ArticleService {
       }
     );
   }
+
   editArticle(id, title, body, category, image) {
     return this.APIService.put(
       this.articleUrl + id,
@@ -48,7 +47,8 @@ export class ArticleService {
   }
 
   deleteArticle(id: string) {
-    return this.APIService.delete(this.articleUrl + id,
+    return this.APIService.delete(
+      this.articleUrl + id,
       {
         token: this.localStorageService.getParameter('token')
       }

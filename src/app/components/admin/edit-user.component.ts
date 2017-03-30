@@ -16,10 +16,10 @@ export class EditUserComponent implements OnInit {
   error: null;
   editUserForm: FormGroup;
 
-  constructor(fb: FormBuilder, private userService: UserService, private  activatedRoute: ActivatedRoute, private router: Router) {
+  constructor(formBuilder: FormBuilder, private userService: UserService, private  activatedRoute: ActivatedRoute, private router: Router) {
     const emailRegex = '^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$';
 
-    this.editUserForm = fb.group({
+    this.editUserForm = formBuilder.group({
       'firstname': [null, Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(15)])],
       'lastname': [null, Validators.compose([Validators.required, Validators.minLength(5), Validators.maxLength(15)])],
       'email': [null, Validators.compose([Validators.required, Validators.pattern(emailRegex)])]
@@ -38,7 +38,7 @@ export class EditUserComponent implements OnInit {
     this.userService.getUserById(id)
       .subscribe((response: Response) => {
         this.data = response.json();
-      });
+    });
   }
 
   editUser(firstname: HTMLInputElement, lastname: HTMLInputElement, email: HTMLInputElement, userRight: HTMLInputElement, adminRight: HTMLInputElement) {

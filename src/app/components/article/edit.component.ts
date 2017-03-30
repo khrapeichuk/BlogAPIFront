@@ -16,8 +16,8 @@ export class EditArticleComponent implements OnInit {
   error: null;
   editArticleForm: FormGroup;
 
-  constructor(fb: FormBuilder, private articleService: ArticleService, private  activatedRoute: ActivatedRoute, private router: Router) {
-    this.editArticleForm = fb.group({
+  constructor(formBuilder: FormBuilder, private articleService: ArticleService, private  activatedRoute: ActivatedRoute, private router: Router) {
+    this.editArticleForm = formBuilder.group({
       'title' : [null, Validators.required]
     });
   }
@@ -40,8 +40,7 @@ export class EditArticleComponent implements OnInit {
   editArticle(articleId, title: HTMLInputElement, body: HTMLInputElement, category: HTMLInputElement, image: HTMLInputElement) {
     this.error = null;
     this.articleService.editArticle(articleId, title, body, category, image)
-      .subscribe(
-        (response: Response) => {
+      .subscribe((response: Response) => {
           this.data = response.json();
 
           this.router.navigate(['/articles']);

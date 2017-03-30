@@ -21,10 +21,10 @@ export class RegistrationComponent {
   error: string;
   registrationForm: FormGroup;
 
-  constructor(fb: FormBuilder, private userService: UserService, private localStorageService: LocalStorageService, private router: Router) {
+  constructor(formBuilder: FormBuilder, private userService: UserService, private localStorageService: LocalStorageService, private router: Router) {
     const emailRegex = '^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$';
 
-    this.registrationForm = fb.group({
+    this.registrationForm = formBuilder.group({
       'firstname': [null, Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(15)])],
       'lastname': [null, Validators.compose([Validators.required, Validators.minLength(5), Validators.maxLength(15)])],
       'email': [null, Validators.compose([Validators.required, Validators.pattern(emailRegex)])],

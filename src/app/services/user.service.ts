@@ -11,8 +11,7 @@ export class UserService {
   constructor(private localStorageService: LocalStorageService, private APIService: APIService) { }
 
   getUserById(id: string) {
-    return this.APIService.get(
-      this.userUrl + id,
+    return this.APIService.get(this.userUrl + id,
       {
         token: this.localStorageService.getParameter('token')
       }
@@ -20,8 +19,7 @@ export class UserService {
   }
 
   getAllUsers() {
-    return this.APIService.get(
-      this.userUrl,
+    return this.APIService.get(this.userUrl,
       {
         token: this.localStorageService.getParameter('token')
       }
@@ -29,8 +27,7 @@ export class UserService {
   }
 
   login(email, password) {
-    return this.APIService.post(
-      this.userUrl + 'login',
+    return this.APIService.post(this.userUrl + 'login',
       {
         email: email.value,
         password: password.value
@@ -39,8 +36,7 @@ export class UserService {
   }
 
   registration(firstname, lastname, email, password) {
-    return this.APIService.post(
-      this.userUrl,
+    return this.APIService.post(this.userUrl,
       {
         firstname: firstname.value,
         lastname: lastname.value,
@@ -51,8 +47,7 @@ export class UserService {
   }
 
   editProfile(id, firstname, lastname, email, rights) {
-    return this.APIService.put(
-      this.userUrl + id,
+    return this.APIService.put(this.userUrl + id,
       {
         token: this.localStorageService.getParameter('token')
       },

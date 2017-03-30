@@ -23,6 +23,6 @@ export class ProfileComponent implements OnInit {
     this.userService.getUserById(this.localStorageService.getParameter('id'))
       .subscribe((response: Response) => {
         this.data = response.json();
-      });
+    });
   }
 }

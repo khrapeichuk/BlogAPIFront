@@ -30,7 +30,7 @@ export class CommentComponent implements OnInit {
     this.commentService.getCommentById(articleId, commentId)
       .subscribe((response: Response) => {
         this.data = response.json();
-      });
+    });
   }
 
   deleteComment() {

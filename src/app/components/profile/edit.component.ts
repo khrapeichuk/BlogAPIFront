@@ -17,10 +17,10 @@ export class EditProfileComponent implements OnInit {
   error: null;
   editProfileForm: FormGroup;
 
-  constructor(fb: FormBuilder, private userService: UserService, private  localStorageService: LocalStorageService, private router: Router) {
+  constructor(formBuilder: FormBuilder, private userService: UserService, private  localStorageService: LocalStorageService, private router: Router) {
     const emailRegex = '^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$';
 
-    this.editProfileForm = fb.group({
+    this.editProfileForm = formBuilder.group({
       'firstname': ['', Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(15)])],
       'lastname': ['', Validators.compose([Validators.required, Validators.minLength(5), Validators.maxLength(15)])],
       'email': ['', Validators.compose([Validators.required, Validators.pattern(emailRegex)])]
@@ -35,7 +35,7 @@ export class EditProfileComponent implements OnInit {
     this.userService.getUserById(this.localStorageService.getParameter('id'))
       .subscribe((response: Response) => {
         this.data = response.json();
-      });
+    });
   }
 
   editProfile(firstname: HTMLInputElement, lastname: HTMLInputElement, email: HTMLInputElement, rights: HTMLInputElement) {
@@ -43,8 +43,7 @@ export class EditProfileComponent implements OnInit {
     let id = this.localStorageService.getParameter('id');
 
     this.userService.editProfile(id, firstname, lastname, email, rights.value)
-      .subscribe(
-        (response: Response) => {
+      .subscribe((response: Response) => {
           this.data = response.json();
 
           this.router.navigate(['profile']);

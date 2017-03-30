@@ -16,16 +16,15 @@ export class CreateArticleComponent {
   error: null;
   createArticleForm: FormGroup;
 
-  constructor(fb: FormBuilder, private articleService: ArticleService, private router: Router) {
-    this.createArticleForm = fb.group({
+  constructor(formBuilder: FormBuilder, private articleService: ArticleService, private router: Router) {
+    this.createArticleForm = formBuilder.group({
       'title' : [null, Validators.required]
     });
   }
 
   createArticle(title: HTMLInputElement, body: HTMLInputElement, category: HTMLInputElement, image: HTMLInputElement) {
     this.articleService.createArticle(title, body, category, image)
-      .subscribe(
-        (response: Response) => {
+      .subscribe((response: Response) => {
           this.data = response.json();
 
           this.router.navigate(['/articles']);
