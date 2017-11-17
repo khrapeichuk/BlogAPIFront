@@ -35,6 +35,8 @@ import { AuthenticationGuard } from './guards/authentication.guard';
 import { RelativeTimePipe } from './pipes/relative-time.pipe';
 import { YearsAndMonthsPipe } from './pipes/years-and-months.pipe';
 
+import { ImageStyleDirective } from './directives/image-style.directive';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -57,7 +59,9 @@ import { YearsAndMonthsPipe } from './pipes/years-and-months.pipe';
     UsersComponent,
 
     RelativeTimePipe,
-    YearsAndMonthsPipe
+    YearsAndMonthsPipe,
+
+    ImageStyleDirective,
   ],
   imports: [
     AppRoutingModule,
