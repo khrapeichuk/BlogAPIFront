@@ -11,7 +11,7 @@ export class APIService {
   constructor(private http: Http) {}
 
   get(UrlPart, parameters) {
-    let UrlParameters = this.convertObjectToUrlParameters (parameters);
+    let UrlParameters = this.convertObjectToUrlParameters(parameters);
 
     return this.http.get(
       this.baseUrl + UrlPart + '?' + UrlParameters,
@@ -32,7 +32,7 @@ export class APIService {
   }
 
   put(UrlPart, parameters, data) {
-    let UrlParameters = this.convertObjectToUrlParameters (parameters);
+    let UrlParameters = this.convertObjectToUrlParameters(parameters);
 
     return this.http.put(
       this.baseUrl + UrlPart + '?' + UrlParameters,
@@ -44,7 +44,7 @@ export class APIService {
   }
 
   delete(UrlPart, parameters) {
-    let UrlParameters = this.convertObjectToUrlParameters (parameters);
+    let UrlParameters = this.convertObjectToUrlParameters(parameters);
 
     return this.http.delete(
       this.baseUrl + UrlPart + '?' + UrlParameters,
