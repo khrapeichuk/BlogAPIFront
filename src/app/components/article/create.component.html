@@ -36,6 +36,11 @@
     <label for="image" class="col-sm-2 col-sm-offset-1 control-label">Image URL</label>
     <div class="col-sm-6">
       <input type="text" class="form-control" id="image" placeholder="Image URL" #image>
+
+      <div *ngIf="createArticleForm.get['image'].hasError('validUrl') && createArticleForm.controls['image'].touched" class="alert alert-danger" style="margin-top: 10px;">
+        Image Url is not valid
+      </div>
+
     </div>
   </div>
 

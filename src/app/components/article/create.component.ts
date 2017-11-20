@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { Response } from '@angular/http';
 import { Router } from '@angular/router';
 
 import { ArticleService } from '../../services/article.service';
+
+import { UrlValidator } from '../../validators/url-validator';
 
 @Component({
   selector: 'app-create-article',
@@ -19,6 +21,11 @@ export class CreateArticleComponent {
   constructor(formBuilder: FormBuilder, private articleService: ArticleService, private router: Router) {
     this.createArticleForm = formBuilder.group({
       'title' : [null, Validators.required]
+    });
+
+    this.createArticleForm = new FormGroup ({
+      'image': new FormControl('', UrlValidator)
+
     });
   }
 
