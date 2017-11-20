@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { EditProfileComponent } from './components/profile/edit.component';
 import { LoginComponent } from './components/authentication/login.component';
 import { LogoutComponent } from './components/authentication/logout.component';
-import { ProfileComponent } from './components/profile/index.component';
 import { RegistrationComponent } from './components/authentication/registration.component';
+import { ProfileComponent } from './components/profile/index.component';
+import { EditProfileComponent } from './components/profile/edit.component';
 
 import { ArticleDetailComponent } from './components/article/detail.component';
 import { ArticlesComponent } from './components/article/index.component';
@@ -15,9 +15,9 @@ import { EditArticleComponent } from './components/article/edit.component';
 import { CommentComponent } from './components/comment/index.component';
 import { EditCommentComponent } from './components/comment/edit.component';
 
-import { EditUserComponent } from './components/admin/edit-user.component';
-import { UserProfileComponent } from './components/admin/user-profile.component';
 import { UsersComponent } from './components/admin/users.component';
+import { UserProfileComponent } from './components/admin/user-profile.component';
+import { EditUserComponent } from './components/admin/edit-user.component';
 
 import { AdminGuard } from './guards/admin.guard';
 import { AuthenticationGuard } from './guards/authentication.guard';
@@ -38,8 +38,8 @@ const routes: Routes = [
   { path: 'articles/:articleId/comment/:commentId/edit', component: EditCommentComponent, canActivate: [AuthenticationGuard] },
 
   { path: 'admin/users', component: UsersComponent, canActivate: [AdminGuard] },
-  { path: 'admin/users/edit/:id', component: EditUserComponent, canActivate: [AdminGuard] },
   { path: 'admin/users/profile/:id', component: UserProfileComponent, canActivate: [AdminGuard] },
+  { path: 'admin/users/edit/:id', component: EditUserComponent, canActivate: [AdminGuard] },
 ];
 
 @NgModule({
