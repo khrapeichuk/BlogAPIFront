@@ -36,6 +36,7 @@ import { RelativeTimePipe } from './pipes/relative-time.pipe';
 import { YearsAndMonthsPipe } from './pipes/years-and-months.pipe';
 
 import { ImageStyleDirective } from './directives/image-style.directive';
+import { ImageDimensionsDirectives } from './directives/image-dimensions.directives';
 
 @NgModule({
   declarations: [
@@ -62,6 +63,7 @@ import { ImageStyleDirective } from './directives/image-style.directive';
     YearsAndMonthsPipe,
 
     ImageStyleDirective,
+    ImageDimensionsDirectives,
   ],
   imports: [
     AppRoutingModule,

@@ -7,7 +7,7 @@
     <div class="media" style="margin-top: 80px; margin-bottom: 80px;" *ngFor="let article of data?.articles">
 
       <div class="media-left" >
-        <img class="media-object" src="{{ article.image }}" width="150" height="150">
+        <img class="media-object" src="{{ article.image }}" [width] = "150" [height] = "150">
       </div>
 
       <div class="media-body">
