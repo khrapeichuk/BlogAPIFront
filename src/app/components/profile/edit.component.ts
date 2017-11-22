@@ -16,6 +16,14 @@ export class EditProfileComponent implements OnInit {
   error: null;
   editProfileForm: FormGroup;
 
+  /**
+   * EditProfileComponent constructor
+   *
+   * @param {FormBuilder} formBuilder
+   * @param {UserService} userService
+   * @param {LocalStorageService} localStorageService
+   * @param {Router} router
+   */
   constructor(formBuilder: FormBuilder, private userService: UserService, private  localStorageService: LocalStorageService, private router: Router) {
     const emailRegex = '^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$';
 
@@ -37,6 +45,12 @@ export class EditProfileComponent implements OnInit {
     });
   }
 
+  /**
+   * @param {HTMLInputElement} firstname
+   * @param {HTMLInputElement} lastname
+   * @param {HTMLInputElement} email
+   * @param {HTMLInputElement} rights
+   */
   editProfile(firstname: HTMLInputElement, lastname: HTMLInputElement, email: HTMLInputElement, rights: HTMLInputElement) {
     this.error = null;
 

@@ -17,6 +17,13 @@ export class CreateArticleComponent {
   error: null;
   createArticleForm: FormGroup;
 
+  /**
+   * CreateArticleComponent constructor
+   *
+   * @param {FormBuilder} formBuilder
+   * @param {ArticleService} articleService
+   * @param {Router} router
+   */
   constructor(formBuilder: FormBuilder, private articleService: ArticleService, private router: Router) {
     this.createArticleForm = formBuilder.group({
       'title' : [null, Validators.required]
@@ -28,6 +35,12 @@ export class CreateArticleComponent {
     });
   }
 
+  /**
+   * @param {HTMLInputElement} title
+   * @param {HTMLInputElement} body
+   * @param {HTMLInputElement} category
+   * @param {HTMLInputElement} image
+   */
   createArticle(title: HTMLInputElement, body: HTMLInputElement, category: HTMLInputElement, image: HTMLInputElement) {
     this.articleService.createArticle(title, body, category, image)
       .subscribe((responseBody: object) => {

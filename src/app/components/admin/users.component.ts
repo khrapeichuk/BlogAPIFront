@@ -11,6 +11,11 @@ import { UserService } from '../../services/user.service';
 export class UsersComponent implements OnInit {
   data: Object;
 
+  /**
+   * UsersComponent constructor
+   *
+   * @param {UserService} userService
+   */
   constructor (private userService: UserService) {}
 
   ngOnInit(): void {
@@ -24,6 +29,9 @@ export class UsersComponent implements OnInit {
     });
   }
 
+  /**
+   * @param id
+   */
   deleteUser(id) {
     this.userService.deleteUser(id);
 

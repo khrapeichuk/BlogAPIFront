@@ -12,6 +12,13 @@ import { CommentService } from '../../services/comment.service';
 export class EditCommentComponent implements OnInit {
   data: Object;
 
+  /**
+   * EditCommentComponent constructor
+   *
+   * @param {CommentService} commentService
+   * @param {ActivatedRoute} activatedRoute
+   * @param {Router} router
+   */
   constructor (private commentService: CommentService, private activatedRoute: ActivatedRoute, private  router: Router) {}
 
   ngOnInit(): void {
@@ -21,6 +28,10 @@ export class EditCommentComponent implements OnInit {
       });
   }
 
+  /**
+   * @param articleId
+   * @param commentId
+   */
   getCommentById(articleId, commentId) {
     this.commentService.getCommentById(articleId, commentId)
       .subscribe((responseBody: object) => {
@@ -28,6 +39,9 @@ export class EditCommentComponent implements OnInit {
     });
   }
 
+  /**
+   * @param message
+   */
   editComment(message) {
     this.activatedRoute.params
       .subscribe((params: Params) => {

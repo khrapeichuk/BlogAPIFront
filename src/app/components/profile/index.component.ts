@@ -12,6 +12,12 @@ import { UserService } from '../../services/user.service';
 export class ProfileComponent implements OnInit {
   data: Object;
 
+  /**
+   * ProfileComponent constructor
+   *
+   * @param {UserService} userService
+   * @param {LocalStorageService} localStorageService
+   */
   constructor(private userService: UserService, private localStorageService: LocalStorageService) {}
 
   ngOnInit(): void {

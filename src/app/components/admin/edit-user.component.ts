@@ -15,6 +15,13 @@ export class EditUserComponent implements OnInit {
   error: null;
   editUserForm: FormGroup;
 
+  /**
+   * EditUserComponent constructor
+   * @param {FormBuilder} formBuilder
+   * @param {UserService} userService
+   * @param {ActivatedRoute} activatedRoute
+   * @param {Router} router
+   */
   constructor(formBuilder: FormBuilder, private userService: UserService, private  activatedRoute: ActivatedRoute, private router: Router) {
     const emailRegex = '^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$';
 
@@ -32,6 +39,9 @@ export class EditUserComponent implements OnInit {
       });
   }
 
+  /**
+   * @param id
+   */
   getUserData(id) {
     this.userService.getUserById(id)
       .subscribe((responseBody: object) => {
@@ -39,6 +49,13 @@ export class EditUserComponent implements OnInit {
     });
   }
 
+  /**
+   * @param {HTMLInputElement} firstname
+   * @param {HTMLInputElement} lastname
+   * @param {HTMLInputElement} email
+   * @param {HTMLInputElement} userRight
+   * @param {HTMLInputElement} adminRight
+   */
   editUser(firstname: HTMLInputElement, lastname: HTMLInputElement, email: HTMLInputElement, userRight: HTMLInputElement, adminRight: HTMLInputElement) {
     this.error = null;
 

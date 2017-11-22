@@ -15,6 +15,14 @@ export class EditArticleComponent implements OnInit {
   error: null;
   editArticleForm: FormGroup;
 
+  /**
+   * EditArticleComponent constructor
+   *
+   * @param {FormBuilder} formBuilder
+   * @param {ArticleService} articleService
+   * @param {ActivatedRoute} activatedRoute
+   * @param {Router} router
+   */
   constructor(formBuilder: FormBuilder, private articleService: ArticleService, private  activatedRoute: ActivatedRoute, private router: Router) {
     this.editArticleForm = formBuilder.group({
       'title' : [null, Validators.required]
@@ -28,6 +36,9 @@ export class EditArticleComponent implements OnInit {
       });
   }
 
+  /**
+   * @param id
+   */
   getArticleData(id) {
     this.articleService.getArticleById(id)
       .subscribe((responseBody: object) => {
@@ -35,6 +46,13 @@ export class EditArticleComponent implements OnInit {
     });
   }
 
+  /**
+   * @param articleId
+   * @param {HTMLInputElement} title
+   * @param {HTMLInputElement} body
+   * @param {HTMLInputElement} category
+   * @param {HTMLInputElement} image
+   */
   editArticle(articleId, title: HTMLInputElement, body: HTMLInputElement, category: HTMLInputElement, image: HTMLInputElement) {
     this.error = null;
     this.articleService.editArticle(articleId, title, body, category, image)

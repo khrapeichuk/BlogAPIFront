@@ -21,6 +21,14 @@ export class LoginComponent {
   error: null;
   loginForm: FormGroup;
 
+  /**
+   * LoginComponent constructor
+   *
+   * @param {FormBuilder} formBuilder
+   * @param {UserService} userService
+   * @param {LocalStorageService} localStorageService
+   * @param {Router} router
+   */
   constructor(formBuilder: FormBuilder, private userService: UserService, private localStorageService: LocalStorageService, private router: Router) {
     const emailRegex = '^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$';
 
@@ -30,6 +38,10 @@ export class LoginComponent {
     });
   }
 
+  /**
+   * @param {HTMLInputElement} email
+   * @param {HTMLInputElement} password
+   */
   login(email: HTMLInputElement, password: HTMLInputElement) {
     this.error = null;
     this.userService.login(email, password)

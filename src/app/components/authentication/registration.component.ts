@@ -20,6 +20,14 @@ export class RegistrationComponent {
   error: string;
   registrationForm: FormGroup;
 
+  /**
+   * RegistrationComponent constructor
+   *
+   * @param {FormBuilder} formBuilder
+   * @param {UserService} userService
+   * @param {LocalStorageService} localStorageService
+   * @param {Router} router
+   */
   constructor(formBuilder: FormBuilder, private userService: UserService, private localStorageService: LocalStorageService, private router: Router) {
     const emailRegex = '^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$';
 
@@ -31,6 +39,12 @@ export class RegistrationComponent {
     });
   }
 
+  /**
+   * @param {HTMLInputElement} firstname
+   * @param {HTMLInputElement} lastname
+   * @param {HTMLInputElement} email
+   * @param {HTMLInputElement} password
+   */
   registration(firstname: HTMLInputElement, lastname: HTMLInputElement, email: HTMLInputElement, password: HTMLInputElement) {
     this.error = null;
     this.userService.registration(firstname, lastname, email, password)

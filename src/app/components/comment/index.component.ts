@@ -13,6 +13,13 @@ import { CommentService } from '../../services/comment.service';
 export class CommentComponent implements OnInit {
   data: Object;
 
+  /**
+   * CommentComponent constructor
+   *
+   * @param {CommentService} commentService
+   * @param {ActivatedRoute} activatedRoute
+   * @param {Location} location
+   */
   constructor (private commentService: CommentService, private activatedRoute: ActivatedRoute, private location: Location) {}
 
   ngOnInit(): void {
@@ -22,6 +29,10 @@ export class CommentComponent implements OnInit {
       });
   }
 
+  /**
+   * @param articleId
+   * @param commentId
+   */
   getCommentById(articleId, commentId) {
     this.commentService.getCommentById(articleId, commentId)
       .subscribe((responseBody: object) => {

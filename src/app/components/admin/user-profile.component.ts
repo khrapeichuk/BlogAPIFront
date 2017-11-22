@@ -12,6 +12,12 @@ import { UserService } from '../../services/user.service';
 export class UserProfileComponent implements OnInit {
   data: Object;
 
+  /**
+   * UserProfileComponent constructor
+   *
+   * @param {ActivatedRoute} activatedRoute
+   * @param {UserService} userService
+   */
   constructor (private activatedRoute: ActivatedRoute, private userService: UserService) {}
 
   ngOnInit(): void {
@@ -21,6 +27,9 @@ export class UserProfileComponent implements OnInit {
       });
   }
 
+  /**
+   * @param id
+   */
   getUserDetail(id) {
     this.userService.getUserById(id)
       .subscribe((responseBody: object) => {

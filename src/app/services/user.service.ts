@@ -9,16 +9,34 @@ import { LocalStorageService } from './local-storage.service';
 export class UserService {
   private userUrl = 'users/';
 
+  /**
+   * UserService constructor
+   *
+   * @param {LocalStorageService} localStorageService
+   * @param {APIService} APIService
+   */
   constructor(private localStorageService: LocalStorageService, private APIService: APIService) { }
 
+  /**
+   * @param {string} id
+   * @returns {Observable<any>}
+   */
   getUserById(id: string) {
     return this.APIService.get(this.userUrl + id);
   }
 
+  /**
+   * @returns {Observable<any>}
+   */
   getAllUsers() {
     return this.APIService.get(this.userUrl);
   }
 
+  /**
+   * @param email
+   * @param password
+   * @returns {Observable<any>}
+   */
   login(email, password) {
     return this.APIService.post(this.userUrl + 'login',
       {
@@ -28,6 +46,13 @@ export class UserService {
     );
   }
 
+  /**
+   * @param firstname
+   * @param lastname
+   * @param email
+   * @param password
+   * @returns {Observable<any>}
+   */
   registration(firstname, lastname, email, password) {
     return this.APIService.post(this.userUrl,
       {
@@ -39,6 +64,14 @@ export class UserService {
     );
   }
 
+  /**
+   * @param id
+   * @param firstname
+   * @param lastname
+   * @param email
+   * @param rights
+   * @returns {Observable<any>}
+   */
   editProfile(id, firstname, lastname, email, rights) {
     return this.APIService.put(this.userUrl + id,
       {
@@ -50,6 +83,10 @@ export class UserService {
     );
   }
 
+  /**
+   * @param {string} id
+   * @returns {Promise<never | any>}
+   */
   deleteUser(id: string) {
     return this.APIService.delete(this.userUrl + id)
       .toPromise()
@@ -57,18 +94,27 @@ export class UserService {
       .catch(() => null);
   }
 
+  /**
+   * @returns {any}
+   */
   getCurrentUserID() {
     if (this.isAuthorized()) {
       return this.localStorageService.getParameter('id');
     }
   }
 
+  /**
+   * @returns {boolean}
+   */
   isAuthorized() {
     if (this.localStorageService.getObject('currentUser')) {
       return true;
     }
   }
 
+  /**
+   * @returns {boolean}
+   */
   isAdmin() {
     if (this.isAuthorized()) {
       let rights = this.localStorageService.getParameter('rights');
@@ -79,6 +125,10 @@ export class UserService {
     }
   }
 
+  /**
+   * @param authorID
+   * @returns {boolean}
+   */
   isArticleOrCommentAuthor(authorID) {
     if (this.getCurrentUserID() === authorID) {
       return true;

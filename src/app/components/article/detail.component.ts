@@ -13,6 +13,13 @@ import { UserService } from '../../services/user.service';
 export class ArticleDetailComponent implements OnInit {
   data: Object;
 
+  /**
+   * ArticleDetailComponent constructor
+   *
+   * @param {ArticleService} articleService
+   * @param {ActivatedRoute} activatedRoute
+   * @param {UserService} userService
+   */
   constructor (private articleService: ArticleService, private activatedRoute: ActivatedRoute, private userService: UserService) {}
 
   ngOnInit(): void {
@@ -22,6 +29,9 @@ export class ArticleDetailComponent implements OnInit {
       });
   }
 
+  /**
+   * @param id
+   */
   getArticleDetail(id) {
     this.articleService.getArticleById(id)
       .subscribe((responseBody: object) => {
@@ -29,12 +39,20 @@ export class ArticleDetailComponent implements OnInit {
     });
   }
 
+  /**
+   * @param articleId
+   * @param comment
+   */
   addComment(articleId, comment) {
     this.articleService.addComment(articleId, comment);
 
     location.reload();
   }
 
+  /**
+   * @param id
+   * @returns {boolean}
+   */
   isCommentAuthor(id) {
     return this.userService.isArticleOrCommentAuthor(id);
   }

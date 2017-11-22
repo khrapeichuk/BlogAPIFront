@@ -12,8 +12,18 @@ export class APIService {
   private headers = new Headers({'Content-Type': 'application/json; charset=utf-8'});
   private baseUrl = 'http://localhost:3000/api/v1/';
 
+  /**
+   * APIService constructor
+   *
+   * @param {Http} http
+   * @param {LocalStorageService} localStorageService
+   */
   constructor(private http: Http, private localStorageService: LocalStorageService) {}
 
+  /**
+   * @param UrlPart
+   * @returns {Observable<any>}
+   */
   get(UrlPart): Observable<any> {
     let UrlParameters = this.convertTokenToUrlParameters();
 
@@ -27,6 +37,11 @@ export class APIService {
       .catch(this.handleError.bind(this));
   }
 
+  /**
+   * @param UrlPart
+   * @param data
+   * @returns {Observable<any>}
+   */
   post(UrlPart, data): Observable<any> {
     return this.http.post(
       this.baseUrl + UrlPart,
@@ -39,6 +54,11 @@ export class APIService {
       .catch(this.handleError.bind(this));
   }
 
+  /**
+   * @param UrlPart
+   * @param data
+   * @returns {Observable<any>}
+   */
   put(UrlPart, data): Observable<any> {
     let UrlParameters = this.convertTokenToUrlParameters();
 
@@ -53,6 +73,10 @@ export class APIService {
     .catch(this.handleError.bind(this));
   }
 
+  /**
+   * @param UrlPart
+   * @returns {Observable<any>}
+   */
   delete(UrlPart): Observable<any> {
     let UrlParameters = this.convertTokenToUrlParameters();
 
@@ -66,10 +90,18 @@ export class APIService {
       .catch(this.handleError.bind(this));
   }
 
-  convertTokenToUrlParameters() {
+  /**
+   * @returns {string}
+   */
+  private convertTokenToUrlParameters() {
     return '&token' + '=' + encodeURIComponent(this.localStorageService.getParameter('token'));
   }
 
+  /**
+   * @param {Response} res
+   * @param {boolean} toJSON
+   * @returns {any}
+   */
   private extractData(res: Response, toJSON: boolean = true) {
     if (!toJSON) {
       return res;
@@ -78,6 +110,10 @@ export class APIService {
     return res.json() || {};
   }
 
+  /**
+   * @param {Response} error
+   * @returns {ErrorObservable}
+   */
   private handleError(error: Response) {
     console.log(error);
 

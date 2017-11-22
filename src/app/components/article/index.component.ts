@@ -12,6 +12,12 @@ import { UserService } from '../../services/user.service';
 export class ArticlesComponent implements OnInit {
   data: Object;
 
+  /**
+   * ArticlesComponent constructor
+   *
+   * @param {ArticleService} articleService
+   * @param {UserService} userService
+   */
   constructor(private articleService: ArticleService, private userService: UserService) {}
 
   ngOnInit(): void {
@@ -25,6 +31,9 @@ export class ArticlesComponent implements OnInit {
     });
   }
 
+  /**
+   * @param id
+   */
   deleteArticle(id) {
     this.articleService.deleteArticle(id);
 
@@ -35,6 +44,10 @@ export class ArticlesComponent implements OnInit {
     return this.userService.isAuthorized();
   }
 
+  /**
+   * @param id
+   * @returns {boolean}
+   */
   isArticleAuthor(id) {
     return this.userService.isArticleOrCommentAuthor(id);
   }
