@@ -3,6 +3,8 @@ import { Http, Headers } from '@angular/http';
 
 import { Observable } from 'rxjs/Rx';
 
+import { LocalStorageService } from './local-storage.service';
+
 import 'rxjs/add/operator/toPromise';
 
 @Injectable()
@@ -10,10 +12,10 @@ export class APIService {
   private headers = new Headers({'Content-Type': 'application/json; charset=utf-8'});
   private baseUrl = 'http://localhost:3000/api/v1/';
 
-  constructor(private http: Http) {}
+  constructor(private http: Http, private localStorageService: LocalStorageService) {}
 
-  get(UrlPart, parameters): Observable<any> {
-    let UrlParameters = this.convertObjectToUrlParameters(parameters);
+  get(UrlPart): Observable<any> {
+    let UrlParameters = this.convertTokenToUrlParameters();
 
     return this.http.get(
       this.baseUrl + UrlPart + '?' + UrlParameters,
@@ -37,8 +39,8 @@ export class APIService {
       .catch(this.handleError.bind(this));
   }
 
-  put(UrlPart, parameters, data): Observable<any> {
-    let UrlParameters = this.convertObjectToUrlParameters(parameters);
+  put(UrlPart, data): Observable<any> {
+    let UrlParameters = this.convertTokenToUrlParameters();
 
     return this.http.put(
       this.baseUrl + UrlPart + '?' + UrlParameters,
@@ -51,8 +53,8 @@ export class APIService {
     .catch(this.handleError.bind(this));
   }
 
-  delete(UrlPart, parameters): Observable<any> {
-    let UrlParameters = this.convertObjectToUrlParameters(parameters);
+  delete(UrlPart): Observable<any> {
+    let UrlParameters = this.convertTokenToUrlParameters();
 
     return this.http.delete(
       this.baseUrl + UrlPart + '?' + UrlParameters,
@@ -64,15 +66,8 @@ export class APIService {
       .catch(this.handleError.bind(this));
   }
 
-  convertObjectToUrlParameters(object) {
-    let UrlParameters = '';
-    for (let key in object) {
-      if (UrlParameters !== '') {
-        UrlParameters += '&';
-      }
-      UrlParameters += key + '=' + encodeURIComponent(object[key]);
-    }
-    return UrlParameters;
+  convertTokenToUrlParameters() {
+    return '&token' + '=' + encodeURIComponent(this.localStorageService.getParameter('token'));
   }
 
   private extractData(res: Response, toJSON: boolean = true) {

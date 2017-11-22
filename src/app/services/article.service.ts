@@ -12,11 +12,11 @@ export class ArticleService {
   constructor(private localStorageService: LocalStorageService, private APIService: APIService) {}
 
   getArticles() {
-    return this.APIService.get(this.articleUrl, {});
+    return this.APIService.get(this.articleUrl);
   }
 
   getArticleById(id: string) {
-    return this.APIService.get(this.articleUrl + id, {});
+    return this.APIService.get(this.articleUrl + id);
   }
 
   createArticle(title, body, category, image) {
@@ -35,9 +35,6 @@ export class ArticleService {
     return this.APIService.put(
       this.articleUrl + id,
       {
-        token: this.localStorageService.getParameter('token')
-      },
-      {
         title: title.value,
         body: body.value,
         category: category.value.split(','),
@@ -48,11 +45,8 @@ export class ArticleService {
 
   deleteArticle(id: string) {
     return this.APIService.delete(
-      this.articleUrl + id,
-      {
-        token: this.localStorageService.getParameter('token')
-      }
-    ).toPromise()
+      this.articleUrl + id)
+      .toPromise()
       .then(() => null)
       .catch(() => null);
   }

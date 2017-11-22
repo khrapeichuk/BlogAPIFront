@@ -12,19 +12,11 @@ export class UserService {
   constructor(private localStorageService: LocalStorageService, private APIService: APIService) { }
 
   getUserById(id: string) {
-    return this.APIService.get(this.userUrl + id,
-      {
-        token: this.localStorageService.getParameter('token')
-      }
-    );
+    return this.APIService.get(this.userUrl + id);
   }
 
   getAllUsers() {
-    return this.APIService.get(this.userUrl,
-      {
-        token: this.localStorageService.getParameter('token')
-      }
-    );
+    return this.APIService.get(this.userUrl);
   }
 
   login(email, password) {
@@ -50,9 +42,6 @@ export class UserService {
   editProfile(id, firstname, lastname, email, rights) {
     return this.APIService.put(this.userUrl + id,
       {
-        token: this.localStorageService.getParameter('token')
-      },
-      {
         firstname: firstname.value,
         lastname: lastname.value,
         email: email.value,
@@ -62,11 +51,8 @@ export class UserService {
   }
 
   deleteUser(id: string) {
-    return this.APIService.delete(this.userUrl + id,
-      {
-        token: this.localStorageService.getParameter('token')
-      }
-    ).toPromise()
+    return this.APIService.delete(this.userUrl + id)
+      .toPromise()
       .then(() => null)
       .catch(() => null);
   }
