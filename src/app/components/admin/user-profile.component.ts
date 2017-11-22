@@ -1,6 +1,5 @@
 import { ActivatedRoute, Params } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { Response } from '@angular/http';
 
 import { UserService } from '../../services/user.service';
 
@@ -24,8 +23,8 @@ export class UserProfileComponent implements OnInit {
 
   getUserDetail(id) {
     this.userService.getUserById(id)
-      .subscribe((response: Response) => {
-        this.data = response.json();
+      .subscribe((responseBody: object) => {
+        this.data = responseBody;
     });
   }
 }

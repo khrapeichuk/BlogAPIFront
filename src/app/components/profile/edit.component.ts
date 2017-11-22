@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Response } from '@angular/http';
 import { Router } from '@angular/router';
 
 import { UserService } from '../../services/user.service';
@@ -33,8 +32,8 @@ export class EditProfileComponent implements OnInit {
 
   getUserData() {
     this.userService.getUserById(this.localStorageService.getParameter('id'))
-      .subscribe((response: Response) => {
-        this.data = response.json();
+      .subscribe((responseBody: object) => {
+        this.data = responseBody;
     });
   }
 
@@ -42,8 +41,8 @@ export class EditProfileComponent implements OnInit {
     this.error = null;
 
     this.userService.editProfile(this.localStorageService.getParameter('id'), firstname, lastname, email, rights.value)
-      .subscribe((response: Response) => {
-          this.data = response.json();
+      .subscribe((responseBody: object) => {
+          this.data = responseBody;
 
           this.router.navigate(['profile']);
         },

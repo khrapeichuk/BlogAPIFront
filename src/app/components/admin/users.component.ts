@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Response } from '@angular/http';
 
 import { UserService } from '../../services/user.service';
 
@@ -20,8 +19,8 @@ export class UsersComponent implements OnInit {
 
   displayUsers() {
     this.userService.getAllUsers()
-      .subscribe((response: Response) => {
-        this.data = response.json();
+      .subscribe((responseBody: object) => {
+        this.data = responseBody;
     });
   }
 

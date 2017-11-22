@@ -1,6 +1,5 @@
 import { ActivatedRoute, Params } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { Response } from '@angular/http';
 
 import { ArticleService } from '../../services/article.service';
 import { UserService } from '../../services/user.service';
@@ -25,8 +24,8 @@ export class ArticleDetailComponent implements OnInit {
 
   getArticleDetail(id) {
     this.articleService.getArticleById(id)
-      .subscribe((response: Response) => {
-        this.data = response.json();
+      .subscribe((responseBody: object) => {
+        this.data = responseBody;
     });
   }
 

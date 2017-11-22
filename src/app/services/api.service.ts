@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 
+import { Observable } from 'rxjs/Rx';
+
 import 'rxjs/add/operator/toPromise';
 
 @Injectable()
@@ -10,7 +12,7 @@ export class APIService {
 
   constructor(private http: Http) {}
 
-  get(UrlPart, parameters) {
+  get(UrlPart, parameters): Observable<any> {
     let UrlParameters = this.convertObjectToUrlParameters(parameters);
 
     return this.http.get(
@@ -18,20 +20,24 @@ export class APIService {
       {
         headers: this.headers
       }
-    );
+    )
+      .map(res => this.extractData(<any>res))
+      .catch(this.handleError.bind(this));
   }
 
-  post(UrlPart, data) {
+  post(UrlPart, data): Observable<any> {
     return this.http.post(
       this.baseUrl + UrlPart,
       JSON.stringify(data),
       {
         headers: this.headers
       }
-    );
+    )
+      .map(res => this.extractData(<any>res))
+      .catch(this.handleError.bind(this));
   }
 
-  put(UrlPart, parameters, data) {
+  put(UrlPart, parameters, data): Observable<any> {
     let UrlParameters = this.convertObjectToUrlParameters(parameters);
 
     return this.http.put(
@@ -40,10 +46,12 @@ export class APIService {
       {
         headers: this.headers
       }
-    );
+    )
+    .map(res => this.extractData(<any>res))
+    .catch(this.handleError.bind(this));
   }
 
-  delete(UrlPart, parameters) {
+  delete(UrlPart, parameters): Observable<any> {
     let UrlParameters = this.convertObjectToUrlParameters(parameters);
 
     return this.http.delete(
@@ -51,7 +59,9 @@ export class APIService {
       {
         headers: this.headers
       }
-    );
+    )
+      .map(res => this.extractData(<any>res))
+      .catch(this.handleError.bind(this));
   }
 
   convertObjectToUrlParameters(object) {
@@ -63,5 +73,26 @@ export class APIService {
       UrlParameters += key + '=' + encodeURIComponent(object[key]);
     }
     return UrlParameters;
+  }
+
+  private extractData(res: Response, toJSON: boolean = true) {
+    if (!toJSON) {
+      return res;
+    }
+
+    return res.json() || {};
+  }
+
+  private handleError(error: Response) {
+    console.log(error);
+
+    let err = error.json();
+
+    if (error.status === 403) {
+      return Observable.throw({
+        status: 'token_expired'
+      });
+    }
+    return Observable.throw(err);
   }
 }

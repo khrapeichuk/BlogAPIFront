@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Response } from '@angular/http';
 
 import { LocalStorageService } from '../../services/local-storage.service';
 import { UserService } from '../../services/user.service';
@@ -21,8 +20,8 @@ export class ProfileComponent implements OnInit {
 
   getUserById() {
     this.userService.getUserById(this.localStorageService.getParameter('id'))
-      .subscribe((response: Response) => {
-        this.data = response.json();
+      .subscribe((responseBody: object) => {
+        this.data = responseBody;
     });
   }
 }

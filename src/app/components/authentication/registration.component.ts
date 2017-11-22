@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Response } from '@angular/http';
 import { Router } from '@angular/router';
 
 import { User } from '../../models/user.model';
@@ -36,16 +35,16 @@ export class RegistrationComponent {
     this.error = null;
     this.userService.registration(firstname, lastname, email, password)
       .subscribe(
-        (response: Response) => {
-          this.data = response.json();
+        (responseBody) => {
+          this.data = responseBody;
           this.currentUser = new User
           (
-            response.json().user._id,
-            response.json().user.firstname,
-            response.json().user.lastname,
-            response.json().user.email,
-            response.json().user.password,
-            response.json().token,
+            responseBody.user._id,
+            responseBody.user.firstname,
+            responseBody.user.lastname,
+            responseBody.user.email,
+            responseBody.user.password,
+            responseBody.token,
             '',
             '',
             null,

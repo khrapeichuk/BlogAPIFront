@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Response } from '@angular/http';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
 import { ArticleService } from '../../services/article.service';
@@ -31,16 +30,16 @@ export class EditArticleComponent implements OnInit {
 
   getArticleData(id) {
     this.articleService.getArticleById(id)
-      .subscribe((response: Response) => {
-        this.data = response.json();
+      .subscribe((responseBody: object) => {
+        this.data = responseBody;
     });
   }
 
   editArticle(articleId, title: HTMLInputElement, body: HTMLInputElement, category: HTMLInputElement, image: HTMLInputElement) {
     this.error = null;
     this.articleService.editArticle(articleId, title, body, category, image)
-      .subscribe((response: Response) => {
-          this.data = response.json();
+      .subscribe((responseBody: object) => {
+          this.data = responseBody;
 
           this.router.navigate(['/articles']);
         },

@@ -1,7 +1,6 @@
 import { ActivatedRoute, Params } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
-import { Response } from '@angular/http';
 
 import { CommentService } from '../../services/comment.service';
 
@@ -25,8 +24,8 @@ export class CommentComponent implements OnInit {
 
   getCommentById(articleId, commentId) {
     this.commentService.getCommentById(articleId, commentId)
-      .subscribe((response: Response) => {
-        this.data = response.json();
+      .subscribe((responseBody: object) => {
+        this.data = responseBody;
     });
   }
 

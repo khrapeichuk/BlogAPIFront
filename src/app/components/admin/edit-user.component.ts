@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Response } from '@angular/http';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
 import { UserService } from '../../services/user.service';
@@ -35,8 +34,8 @@ export class EditUserComponent implements OnInit {
 
   getUserData(id) {
     this.userService.getUserById(id)
-      .subscribe((response: Response) => {
-        this.data = response.json();
+      .subscribe((responseBody: object) => {
+        this.data = responseBody;
     });
   }
 
@@ -49,8 +48,8 @@ export class EditUserComponent implements OnInit {
       let adminRights = adminRight.checked ? adminRight.value : '';
 
     this.userService.editProfile(params['id'], firstname, lastname, email, userRights + ',' + adminRights)
-      .subscribe((response: Response) => {
-          this.data = response.json();
+      .subscribe((responseBody: object) => {
+          this.data = responseBody;
 
           this.router.navigate(['admin/users']);
         },

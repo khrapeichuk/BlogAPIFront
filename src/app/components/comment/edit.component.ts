@@ -1,6 +1,5 @@
 import { ActivatedRoute, Router, Params } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { Response } from '@angular/http';
 
 import { CommentService } from '../../services/comment.service';
 
@@ -24,8 +23,8 @@ export class EditCommentComponent implements OnInit {
 
   getCommentById(articleId, commentId) {
     this.commentService.getCommentById(articleId, commentId)
-      .subscribe((response: Response) => {
-        this.data = response.json();
+      .subscribe((responseBody: object) => {
+        this.data = responseBody;
     });
   }
 
@@ -33,8 +32,8 @@ export class EditCommentComponent implements OnInit {
     this.activatedRoute.params
       .subscribe((params: Params) => {
         this.commentService.editComment(params['articleId'], params['commentId'], message)
-          .subscribe((response: Response) => {
-            this.data = response.json();
+          .subscribe((responseBody: object) => {
+            this.data = responseBody;
           });
 
       this.router.navigate(['articles', params['articleId']]);

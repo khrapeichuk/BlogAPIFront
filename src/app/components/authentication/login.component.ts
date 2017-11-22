@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Response } from '@angular/http';
 import { Router } from '@angular/router';
 
 import { User } from '../../models/user.model';
@@ -35,18 +34,18 @@ export class LoginComponent {
     this.error = null;
     this.userService.login(email, password)
       .subscribe(
-        (response: Response) => {
-          this.data = response.json();
-          this.currentUser = new User(response.json().user._id,
-                                      response.json().user.firstname,
-                                      response.json().user.lastname,
-                                      response.json().user.email,
+        (responseBody) => {
+          this.data = responseBody;
+          this.currentUser = new User(responseBody.user._id,
+                                      responseBody.user.firstname,
+                                      responseBody.user.lastname,
+                                      responseBody.user.email,
                                       '',
-                                      response.json().token,
-                                      response.json().user.created_at,
-                                      response.json().user.updated_at,
-                                      response.json().user.is_subscribed,
-                                      response.json().user.rights
+                                      responseBody.token,
+                                      responseBody.user.created_at,
+                                      responseBody.user.updated_at,
+                                      responseBody.user.is_subscribed,
+                                      responseBody.user.rights
           );
 
           this.localStorageService.setObject('currentUser', this.currentUser);

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Response } from '@angular/http';
 
 import { ArticleService } from '../../services/article.service';
 import { UserService } from '../../services/user.service';
@@ -21,8 +20,8 @@ export class ArticlesComponent implements OnInit {
 
   displayArticles() {
     this.articleService.getArticles()
-      .subscribe((response: Response) => {
-        this.data = response.json();
+      .subscribe((responseBody: object) => {
+        this.data = responseBody;
     });
   }
 

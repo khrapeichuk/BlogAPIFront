@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
-import { Response } from '@angular/http';
 import { Router } from '@angular/router';
 
 import { ArticleService } from '../../services/article.service';
@@ -31,8 +30,8 @@ export class CreateArticleComponent {
 
   createArticle(title: HTMLInputElement, body: HTMLInputElement, category: HTMLInputElement, image: HTMLInputElement) {
     this.articleService.createArticle(title, body, category, image)
-      .subscribe((response: Response) => {
-          this.data = response.json();
+      .subscribe((responseBody: object) => {
+          this.data = responseBody;
 
           this.router.navigate(['/articles']);
         },
